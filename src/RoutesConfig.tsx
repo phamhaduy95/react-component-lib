@@ -1,3 +1,4 @@
+import TextInput from '@components/TextInput/TextInput';
 import ComponentsPage from '@pages/components';
 import ButtonPage from '@pages/components/button/ButtonPage';
 import HomePage from '@pages/homes/HomePage';
@@ -10,6 +11,7 @@ const RouteConfig = () => {
 				<Route index element={<HomePage />} />
 				<Route path="components" element={<ComponentsPage />}>
 					<Route path="button" element={<ButtonPage />} />
+					<Route path="text-input" element={<TextInput />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

@@ -6,6 +6,7 @@ const ComponentsPage = () => {
 		{
 			items: [
 				{ href: '/components/button', title: 'Button' },
+				{ href: '/components/text-input', title: 'TextInput' },
 				{
 					href: '/components/navigation-bar',
 					title: 'NavigationBar'
@@ -30,7 +31,7 @@ const ComponentsPage = () => {
 	return (
 		<div className="flex h-full w-full">
 			<NavigationBar className="w-52" items={links} CustomLink={CustomLink} />
-			<main className="px-4 py-3">
+			<main className="grow px-4 py-3">
 				<Outlet />
 			</main>
 		</div>
