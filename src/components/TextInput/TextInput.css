@@ -1,7 +1,13 @@
 @reference "@styles/index.css";
+.TextInput {
+	@apply relative;
+	> .TextInput_SupportingText {
+		@apply absolute bottom-[-1.2rem] pt-0;
+	}
+}
 
 .TextInput_InputField {
-	@apply text-on-surface h-container-lg border-outline flex items-center rounded-[var(--field-border-radius)] border;
+	@apply text-on-surface h-container-lg border-outline relative flex items-center rounded-[var(--field-border-radius)] border;
 
 	&:focus-within {
 		@apply border-primary border-2;

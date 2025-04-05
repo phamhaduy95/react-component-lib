@@ -15,6 +15,7 @@ export type TextInputProp = HTMLAttributes<HTMLInputElement> & {
 	disabled?: boolean;
 	className?: string;
 	required?: boolean;
+	name?: string;
 };
 
 const TextInput = ({
@@ -27,7 +28,8 @@ const TextInput = ({
 	disabled,
 	supportingText,
 	onChange,
-	onValueChange
+	onValueChange,
+	...rest
 }: TextInputProp) => {
 	const inputId = useId();
 	const supportingTextId = useId();
@@ -57,9 +59,14 @@ const TextInput = ({
 					aria-invalid={status === 'error'}
 					value={value}
 					onChange={handleInputChanged}
+					{...rest}
 				/>
 			</div>
-			<SupportingText id={supportingTextId} status={status}>
+			<SupportingText
+				className="TextInput_SupportingText"
+				id={supportingTextId}
+				status={status}
+			>
 				{supportingText}
 			</SupportingText>
 		</div>
