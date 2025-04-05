@@ -24,9 +24,10 @@
 		"noUncheckedSideEffectImports": true,
         "baseUrl": ".",
         "paths": {
+            "@styles/*": ["src/styles/*"],
             "@components/*": ["src/components/*"],
             "@pages/*": ["src/pages/*"],
         },
     },
-	"include": ["src"]
+	"include": ["src", "tailwind.config.js"]
 }
