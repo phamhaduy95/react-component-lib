@@ -1,8 +1,7 @@
 @reference "@styles/index.css";
 
-.form-label {
+.FormLabel {
 	@apply text-on-surface-variant pointer-events-none;
-
 	&[data-status='error'] {
 		@apply text-error;
 	}
