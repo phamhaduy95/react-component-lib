@@ -1,0 +1,35 @@
+@reference "@styles/index.css";
+
+.TextInput {
+	@apply text-on-surface h-container-lg border-outline flex items-center rounded-[var(--field-border-radius)] border;
+
+	&:focus-within {
+		@apply border-primary border-2;
+	}
+
+	& > .TextInput_Input {
+		@apply caret-primary h-full w-full px-4 py-2;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&[data-clearable='true'] {
+		& > .TextInput_Input {
+			@apply pr-2;
+		}
+	}
+
+	&[data-status='error'] {
+		@apply border-error;
+	}
+
+	&[data-status='warning'] {
+		@apply border-warning;
+	}
+
+	&[data-status='success'] {
+		@apply border-success;
+	}
+}
