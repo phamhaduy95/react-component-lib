@@ -1,0 +1,27 @@
+.CollapsibleContent {
+	@apply overflow-hidden;
+	&[data-state='open'] {
+		animation: slideDown 100ms ease-out;
+	}
+	&[data-state='closed'] {
+		animation: slideUp 100ms ease-out;
+	}
+}
+
+@keyframes slideDown {
+	from {
+		height: 0;
+	}
+	to {
+		height: var(--radix-collapsible-content-height);
+	}
+}
+
+@keyframes slideUp {
+	from {
+		height: var(--radix-collapsible-content-height);
+	}
+	to {
+		height: 0;
+	}
+}
