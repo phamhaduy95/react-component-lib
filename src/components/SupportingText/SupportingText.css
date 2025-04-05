@@ -1,0 +1,17 @@
+@reference "@styles/index.css";
+
+.SupportingText {
+	@apply text-on-surface-variant pt-2 text-xs;
+
+	&[data-status='error'] {
+		@apply text-error;
+	}
+
+	&[data-status='warning'] {
+		@apply text-warning;
+	}
+
+	&[data-status='success'] {
+		@apply text-success;
+	}
+}

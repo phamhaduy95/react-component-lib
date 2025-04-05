@@ -1,0 +1,17 @@
+@reference "@styles/index.css";
+
+.form-label {
+	@apply text-on-surface-variant pointer-events-none;
+
+	&[data-status='error'] {
+		@apply text-error;
+	}
+
+	&[data-status='warning'] {
+		@apply text-warning;
+	}
+
+	&[data-status='success'] {
+		@apply text-success;
+	}
+}
