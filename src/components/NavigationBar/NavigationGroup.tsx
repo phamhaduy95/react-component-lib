@@ -18,7 +18,15 @@ const NavigationGroup = ({ label, items, children }: NavigationGroupProps) => {
 
 	return (
 		<li>
-			<Collapsible className="NavigationGroup" Trigger={() => <span>{label}</span>}>
+			<Collapsible
+				className="NavigationGroup"
+				Trigger={() => (
+					<>
+						<span>{label}</span>{' '}
+					</>
+				)}
+				overrideContent
+			>
 				<ul className="NavigationGroupList">{renderItems()}</ul>
 			</Collapsible>
 		</li>

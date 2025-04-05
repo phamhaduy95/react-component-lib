@@ -11,6 +11,8 @@ type CollapsibleProps = {
 	onOpenChange?: (isOpen: boolean) => void;
 	children?: React.ReactNode;
 	Trigger: (props: { open: boolean; className?: string }) => JSX.Element;
+	overrideTrigger?: boolean;
+	overrideContent?: boolean;
 };
 
 const Collapsible = ({
@@ -20,7 +22,9 @@ const Collapsible = ({
 	className,
 	disabled,
 	Trigger,
-	children
+	children,
+	overrideTrigger,
+	overrideContent
 }: CollapsibleProps) => {
 	const [internalOpen, setInternalOpen] = useState(defaultOpen);
 
@@ -38,10 +42,10 @@ const Collapsible = ({
 			onOpenChange={handleOpenChange}
 			disabled={disabled}
 		>
-			<RadixCollapsible.Trigger className="CollapsibleTrigger">
+			<RadixCollapsible.Trigger className="CollapsibleTrigger" asChild={overrideTrigger}>
 				{Trigger({ open })}
 			</RadixCollapsible.Trigger>
-			<RadixCollapsible.Content className="CollapsibleContent">
+			<RadixCollapsible.Content className="CollapsibleContent" asChild={overrideContent}>
 				{children}
 			</RadixCollapsible.Content>
 		</RadixCollapsible.Root>
