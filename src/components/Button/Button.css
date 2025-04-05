@@ -1,6 +1,17 @@
-.button {
-	@apply bg-primary h;
+@reference "@styles/index.css";
 
-	&:hover {
+.Button {
+	@apply cursor-pointer rounded-sm border px-3 py-2 font-medium;
+
+	&[data-variant='filled'] {
+		@apply bg-primary text-on-primary border-primary;
+	}
+
+	&[data-variant='outlined'] {
+		@apply border-outline;
+	}
+
+	&[data-variant='text'] {
+		@apply border-transparent;
 	}
 }

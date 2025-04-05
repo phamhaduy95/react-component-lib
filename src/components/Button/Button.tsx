@@ -1,16 +1,23 @@
+import classNames from 'classnames';
 import { Ref } from 'react';
-
-type ButtonVariant = 'filled' | 'outlined';
+import './Button.css';
+type ButtonVariant = 'filled' | 'outlined' | 'text';
 
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
 	children?: React.ReactNode;
 	ref?: Ref<HTMLButtonElement>;
 	variant?: ButtonVariant;
+	className?: string;
 };
 
-const Button = ({ children, ref, variant, ...rest }: ButtonProps) => {
+const Button = ({ children, className, ref, variant = 'filled', ...rest }: ButtonProps) => {
 	return (
-		<button ref={ref} data-variant={variant} {...rest}>
+		<button
+			className={classNames('Button', className)}
+			ref={ref}
+			data-variant={variant}
+			{...rest}
+		>
 			{children}
 		</button>
 	);

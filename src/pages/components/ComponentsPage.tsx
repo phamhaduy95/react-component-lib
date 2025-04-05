@@ -30,7 +30,7 @@ const ComponentsPage = () => {
 	return (
 		<div className="flex h-full w-full">
 			<NavigationBar className="w-52" items={links} CustomLink={CustomLink} />
-			<main className="">
+			<main className="px-4 py-3">
 				<Outlet />
 			</main>
 		</div>

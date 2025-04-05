@@ -140,4 +140,5 @@
 	--color-info-container: rgb(216 226 255);
 	--color-on-info-container: rgb(0 26 65);
 	--radius-max: 999px;
+	--spacing-container-lg: 48px;
 }
