@@ -1,0 +1,34 @@
+.ScrollAreaRoot {
+	@apply relative overflow-hidden;
+}
+
+.ScrollAreaViewport {
+	@apply h-full w-full;
+}
+
+.ScrollAreaScrollbar {
+	@apply display: rounded-max flex touch-none opacity-90 select-none;
+
+	&:hover {
+		@apply bg-outline-variant;
+	}
+
+	&[data-orientation='horizontal'] {
+		display: flex;
+		height: var(--scrollbar-size);
+		&:hover {
+			height: var(--scrollbar-hovered-size);
+		}
+	}
+
+	&[data-orientation='vertical'] {
+		width: var(--scrollbar-size);
+		&:hover {
+			width: var(--scrollbar-hovered-size);
+		}
+	}
+}
+
+.ScrollAreaThumb {
+	@apply bg-outline rounded-max;
+}
