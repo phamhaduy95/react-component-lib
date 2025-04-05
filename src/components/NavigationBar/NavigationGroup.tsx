@@ -1,4 +1,5 @@
 import Collapsible from '@components/Collapsible/Collapsible';
+import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { JSX } from 'react';
 import { NavigationLink } from './NavigationBar';
 
@@ -23,6 +24,7 @@ const NavigationGroup = ({ label, items, children }: NavigationGroupProps) => {
 				Trigger={() => (
 					<>
 						<span>{label}</span>{' '}
+						<ChevronDownIcon className="ml-auto" height={20} width={20} />
 					</>
 				)}
 				overrideContent

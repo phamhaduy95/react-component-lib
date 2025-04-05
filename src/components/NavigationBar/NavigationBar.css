@@ -40,7 +40,7 @@
 }
 
 .NavigationGroup > .CollapsibleTrigger {
-	@apply flex w-full cursor-pointer rounded-sm p-2 font-semibold;
+	@apply flex w-full cursor-pointer items-center rounded-sm p-2 font-semibold;
 
 	&:hover {
 		@apply bg-surface-container-low;
