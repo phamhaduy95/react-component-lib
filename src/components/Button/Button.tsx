@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { Ref } from 'react';
-import './Button.css';
 type ButtonVariant = 'filled' | 'outlined' | 'text';
 
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {

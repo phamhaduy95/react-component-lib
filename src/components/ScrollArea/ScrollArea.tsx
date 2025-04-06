@@ -1,15 +1,18 @@
-import { ScrollArea as RadixScrollArea } from 'radix-ui';
-import './ScrollArea.css';
 import classNames from 'classnames';
+import { ScrollArea as RadixScrollArea } from 'radix-ui';
 
-type ScrollAreaProps = {
+type ScrollAreaProps = RadixScrollArea.ScrollAreaProps & {
 	children?: React.ReactNode;
 	maxHeight?: string;
 	className?: string;
 };
 
-const ScrollArea = ({ children, maxHeight, className }: ScrollAreaProps) => (
-	<RadixScrollArea.Root className={classNames('ScrollAreaRoot', className)}>
+const ScrollArea = ({ children, maxHeight, className, ...rest }: ScrollAreaProps) => (
+	<RadixScrollArea.Root
+		className={classNames('ScrollAreaRoot', className)}
+		type="always"
+		{...rest}
+	>
 		<RadixScrollArea.Viewport className="ScrollAreaViewport" style={{ maxHeight }}>
 			{children}
 		</RadixScrollArea.Viewport>

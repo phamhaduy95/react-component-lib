@@ -1,4 +1,13 @@
 @import 'tailwindcss';
+@import './Button.css';
+@import './Collapsible.css' layer(components);
+@import './FormLabel.css' layer(components);
+@import './Menu.css' layer(components);
+@import './NavigationBar.css' layer(components);
+@import './ScrollArea.css' layer(components);
+@import './Select.css' layer(components);
+@import './SupportingText.css' layer(components);
+@import './TextInput.css' layer(components);
 
 :root {
 	--color-primary: rgb(53, 92, 170);

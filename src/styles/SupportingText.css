@@ -1,7 +1,6 @@
-@reference "@styles/index.css";
+.SupportingText {
+	@apply text-on-surface-variant pt-2 text-xs;
 
-.FormLabel {
-	@apply text-on-surface-variant pointer-events-none;
 	&[data-status='error'] {
 		@apply text-error;
 	}

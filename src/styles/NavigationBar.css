@@ -1,5 +1,3 @@
-@reference "@styles/index.css";
-
 .NavigationBar {
 	@apply border-outline-variant text-on-surface w-[250px] border;
 }

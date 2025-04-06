@@ -3,7 +3,6 @@ import SupportingText from '@components/SupportingText/SupportingText';
 import { FormStatus } from '@components/type';
 import classNames from 'classnames';
 import { FormEvent, HTMLAttributes, useId } from 'react';
-import './TextInput.css';
 
 export type TextInputProp = HTMLAttributes<HTMLInputElement> & {
 	value?: string;

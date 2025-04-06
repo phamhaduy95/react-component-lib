@@ -7,7 +7,6 @@ import FormLabel from '@components/FormLabel/FormLabel';
 import SupportingText from '@components/SupportingText';
 import { FormStatus } from '@components/type';
 import { HTMLAttributes, Ref, useId } from 'react';
-import './Select.css';
 
 type SelectItem = { value: string; label: string; disabled?: boolean };
 

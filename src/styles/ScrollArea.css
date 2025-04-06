@@ -7,14 +7,9 @@
 }
 
 .ScrollAreaScrollbar {
-	@apply display: rounded-max flex touch-none opacity-90 select-none;
-
-	&:hover {
-		@apply bg-outline-variant;
-	}
+	@apply rounded-max bg-surface-container-low flex touch-none opacity-85 select-none;
 
 	&[data-orientation='horizontal'] {
-		display: flex;
 		height: var(--scrollbar-size);
 		&:hover {
 			height: var(--scrollbar-hovered-size);
@@ -23,6 +18,7 @@
 
 	&[data-orientation='vertical'] {
 		width: var(--scrollbar-size);
+		flex-direction: column;
 		&:hover {
 			width: var(--scrollbar-hovered-size);
 		}
@@ -30,5 +26,5 @@
 }
 
 .ScrollAreaThumb {
-	@apply bg-outline rounded-max;
+	@apply bg-on-surface-variant rounded-max;
 }
