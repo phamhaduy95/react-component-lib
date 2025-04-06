@@ -10,7 +10,8 @@ type ScrollAreaProps = RadixScrollArea.ScrollAreaProps & {
 const ScrollArea = ({ children, maxHeight, className, ...rest }: ScrollAreaProps) => (
 	<RadixScrollArea.Root
 		className={classNames('ScrollAreaRoot', className)}
-		type="always"
+		type="hover"
+		scrollHideDelay={100}
 		{...rest}
 	>
 		<RadixScrollArea.Viewport className="ScrollAreaViewport" style={{ maxHeight }}>
