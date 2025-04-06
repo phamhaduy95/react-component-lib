@@ -4,7 +4,7 @@ const ButtonPage = () => {
 	return (
 		<>
 			<section>
-				<h2 className="mb-2">Button Variant</h2>
+				<h2 className="mb-2">Button 1 Variant</h2>
 				<div className="flex gap-3">
 					<Button>Click Me</Button>
 					<Button variant="outlined">Click Me</Button>

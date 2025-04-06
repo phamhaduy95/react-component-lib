@@ -12,7 +12,7 @@ const ComponentsPage = () => {
 					title: 'NavigationBar'
 				},
 				{
-					href: '/components/scrollbar',
+					href: '/components/scroll-area',
 					title: 'ScrollBar'
 				},
 				{
