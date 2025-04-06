@@ -87,6 +87,7 @@
 	--color-on-secondary: var(--color-on-secondary);
 	--color-secondary-container: var(--color-secondary-container);
 	--color-on-secondary-container: var(--color-on-secondary-container);
+	--color-secondary-container-hovered: var(--color-secondary-container-hovered);
 	--color-tertiary: var(--color-tertiary);
 	--color-on-tertiary: var(--color-on-tertiary);
 	--color-tertiary-container: var(--color-tertiary-container);

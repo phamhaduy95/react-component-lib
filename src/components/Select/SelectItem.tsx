@@ -6,14 +6,19 @@ type SelectItemProps = RadixSelect.SelectItemProps & {
 	children?: React.ReactNode;
 	className?: string;
 	ref?: React.Ref<HTMLDivElement>;
+	label?: string;
 };
 
-const SelectItem = ({ children, className, ref, ...rest }: SelectItemProps) => {
+const SelectItem = ({ label, className, ref, ...rest }: SelectItemProps) => {
 	return (
-		<RadixSelect.Item {...rest} className={classNames('SelectItem', className)} ref={ref}>
-			<RadixSelect.ItemText>{children}</RadixSelect.ItemText>
-			<RadixSelect.ItemIndicator className="SelectItemIndicator">
-				<CheckIcon />
+		<RadixSelect.Item
+			{...rest}
+			className={classNames('Menu_Item SelectItem', className)}
+			ref={ref}
+		>
+			<RadixSelect.ItemText>{label}</RadixSelect.ItemText>
+			<RadixSelect.ItemIndicator className="MenuItem_TrailingIcon" asChild>
+				<CheckIcon height={20} width={20} />
 			</RadixSelect.ItemIndicator>
 		</RadixSelect.Item>
 	);

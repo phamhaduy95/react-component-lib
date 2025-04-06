@@ -14,6 +14,10 @@ const ComponentsPage = () => {
 				{
 					href: '/components/scrollbar',
 					title: 'ScrollBar'
+				},
+				{
+					href: '/components/select',
+					title: 'Select'
 				}
 			],
 			title: 'Components'
