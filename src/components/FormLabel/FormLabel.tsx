@@ -1,7 +1,7 @@
+import { FormStatus } from '@components/type';
 import classNames from 'classnames';
 import { createElement, HTMLAttributes, HTMLElementType } from 'react';
-
-import { FormStatus } from '@components/type';
+import './FormLabel.css';
 
 type FormLabelProps = HTMLAttributes<HTMLLabelElement> & {
 	type?: HTMLElementType;

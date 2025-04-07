@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { Collapsible as RadixCollapsible } from 'radix-ui';
 import { JSX, useState } from 'react';
+import './Collapsible.css';
 
 type CollapsibleProps = {
 	isOpen?: boolean;

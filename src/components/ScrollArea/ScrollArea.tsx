@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { ScrollArea as RadixScrollArea } from 'radix-ui';
+import './ScrollArea.css';
 
 type ScrollAreaProps = RadixScrollArea.ScrollAreaProps & {
 	children?: React.ReactNode;
@@ -10,7 +11,6 @@ type ScrollAreaProps = RadixScrollArea.ScrollAreaProps & {
 const ScrollArea = ({ children, maxHeight, className, ...rest }: ScrollAreaProps) => (
 	<RadixScrollArea.Root
 		className={classNames('ScrollAreaRoot', className)}
-		type="hover"
 		scrollHideDelay={100}
 		{...rest}
 	>

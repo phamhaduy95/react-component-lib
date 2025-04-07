@@ -1,4 +1,5 @@
 import { JSX } from 'react';
+import './NavigationBar.css';
 import NavigationGroup from './NavigationGroup';
 
 export type NavigationLink = {

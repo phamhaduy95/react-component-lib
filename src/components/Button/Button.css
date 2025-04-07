@@ -1,0 +1,21 @@
+.Button {
+	cursor: pointer;
+	border-radius: var(--radius-sm);
+	border-style: solid;
+	padding-inline: 12px;
+	padding-block: 8px;
+	font-weight: 500;
+	border-width: 1px;
+
+	&[data-variant='filled'] {
+		border-color: var(--color-primary);
+		background-color: var(--color-primary);
+		color: var(--color-on-primary);
+	}
+	&[data-variant='outlined'] {
+		border-color: var(--color-outline);
+	}
+	&[data-variant='text'] {
+		border-color: #0000;
+	}
+}

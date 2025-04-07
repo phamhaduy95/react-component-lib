@@ -1,5 +1,6 @@
 import { FormStatus } from '@components/type';
 import classNames from 'classnames';
+import './SupportingText.css';
 
 export type SupportingTextProps = React.HTMLAttributes<HTMLParagraphElement> & {
 	children: React.ReactNode;

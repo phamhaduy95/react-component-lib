@@ -1,0 +1,33 @@
+.ScrollAreaRoot {
+	position: relative;
+	overflow: hidden;
+}
+.ScrollAreaViewport {
+	width: 100%;
+	height: 100%;
+}
+.ScrollAreaScrollbar {
+	touch-action: none;
+	border-radius: var(--radius-max);
+	background-color: var(--color-surface-container-low);
+	opacity: 0.85;
+	user-select: none;
+	display: flex;
+}
+.ScrollAreaScrollbar[data-orientation='horizontal'] {
+	height: var(--scrollbar-size);
+}
+.ScrollAreaScrollbar[data-orientation='horizontal']:hover {
+	height: var(--scrollbar-hovered-size);
+}
+.ScrollAreaScrollbar[data-orientation='vertical'] {
+	width: var(--scrollbar-size);
+	flex-direction: column;
+}
+.ScrollAreaScrollbar[data-orientation='vertical']:hover {
+	width: var(--scrollbar-hovered-size);
+}
+.ScrollAreaThumb {
+	border-radius: var(--radius-max);
+	background-color: var(--color-on-surface-variant);
+}
