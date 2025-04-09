@@ -1,7 +1,7 @@
-import Select, { SelectProps } from '@components/Select/Select';
+import SelectV2 from '@components/SingleSelect/Select';
 
 const SelectPage = () => {
-	const items: SelectProps['items'] = [
+	const items = [
 		{ value: 'light-monochrome', label: 'Light Monochrome' },
 		{ value: 'dark-green', label: 'Dark Green' },
 		{ value: 'svelte-orange', label: 'Svelte Orange' },
@@ -22,12 +22,19 @@ const SelectPage = () => {
 		{ value: 'deep-purple', label: 'Deep Purple' },
 		{ value: 'turquoise-blue', label: 'Turquoise Blue' },
 		{ value: 'burnt-orange', label: 'Burnt Orange' },
-		{ value: 'b-orange', label: 'Burnt Orange' }
+		{ value: 'b-orange', label: 'Burnt Orange', disabled: true }
 	];
 
 	return (
 		<div>
-			<Select label="Select Food" placeholder="Select a item" items={items} />
+			<SelectV2
+				items={items}
+				placeholder="Select a item"
+				label="Select item"
+				clearable
+				supportingText="Aa"
+				status="error"
+			/>
 		</div>
 	);
 };

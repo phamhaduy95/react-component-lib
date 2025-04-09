@@ -1,0 +1,65 @@
+.Select_Field {
+	height: var(--spacing-container-lg);
+	cursor: pointer;
+	border: 1px solid var(--color-outline);
+	border-radius: var(--radius-sm);
+	width: 100%;
+	padding-inline: 16px;
+	padding-block: 8px;
+	caret-color: #0000;
+	align-items: center;
+	display: flex;
+
+	& > .Select_Value {
+		text-wrap: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	& > .Select_TrailingIcon {
+		margin-left: auto;
+		display: flex;
+		align-items: center;
+		color: var(--color-outline);
+
+		.Select_ClearButton {
+			cursor: pointer;
+		}
+
+		&:has(.Select_ClearButton:not([hidden])) {
+			> .Select_ToggleIcon {
+				display: none;
+			}
+		}
+	}
+
+	&[data-placeholder-shown] {
+		color: var(--color-outline);
+	}
+	&:is(:focus, [data-state='open']) {
+		border: 2px solid var(--color-primary);
+		outline-style: none;
+	}
+	&[data-status='error'] {
+		border-color: var(--color-error);
+	}
+	&[data-status='warning'] {
+		border-color: var(--color-warning);
+	}
+	&[data-status='success'] {
+		border-color: var(--color-success);
+	}
+}
+
+.Menu.SelectContent {
+	min-width: var(--reference-width);
+	max-height: 50dvh;
+	overflow: auto;
+}
+.SelectItem[data-state='checked'] {
+	background-color: var(--color-primary-container);
+	color: var(--color-on-primary-container);
+}
+.SelectItem[data-state='checked'] > .MenuItem_TrailingIcon {
+	color: var(--color-primary);
+}
