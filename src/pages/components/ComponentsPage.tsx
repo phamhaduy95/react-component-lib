@@ -35,7 +35,7 @@ const ComponentsPage = () => {
 	return (
 		<div className="flex h-full w-full">
 			<NavigationBar className="w-52" items={links} CustomLink={CustomLink} />
-			<main className="grow px-4 py-3">
+			<main className="grow overflow-auto px-4 py-3">
 				<Outlet />
 			</main>
 		</div>

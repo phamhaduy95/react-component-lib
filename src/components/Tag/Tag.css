@@ -1,0 +1,34 @@
+.Tag {
+	height: 32px;
+	border: 1px solid var(--color-outline);
+	cursor: initial;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+
+	> .Tag_Label {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
+	&[data-variant='primary'] {
+		background-color: var(--color-primary);
+		border-color: var(--color-primary);
+		color: var(--color-on-primary);
+	}
+
+	&[data-removable] {
+		padding-right: 12px;
+
+		> .Tag_Label {
+			padding-right: 8px;
+		}
+	}
+
+	.Tag_RemoveButton {
+		cursor: pointer;
+	}
+}

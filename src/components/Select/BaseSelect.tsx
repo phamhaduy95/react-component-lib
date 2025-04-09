@@ -5,12 +5,13 @@ import { FormStatus } from '@components/type';
 import { CheckIcon, ChevronDownIcon, Cross2Icon } from '@radix-ui/react-icons';
 import { HTMLAttributes, Ref } from 'react';
 
+import classNames from 'classnames';
 import '../Menu/Menu.css';
 import './Select.css';
 
-type SelectItem = { value: string; label: string; disabled?: boolean };
+export type SelectItem = { value: string; label: string; disabled?: boolean };
 
-export type SelectProps = HTMLAttributes<HTMLButtonElement> & {
+export type BaseSelectProps = HTMLAttributes<HTMLButtonElement> & {
 	className?: string;
 	disabled?: boolean;
 	items?: Array<SelectItem>;
@@ -23,47 +24,61 @@ export type SelectProps = HTMLAttributes<HTMLButtonElement> & {
 	deselectable?: boolean;
 	loopFocus?: boolean;
 	clearable?: boolean;
+	value?: string[];
+	multiple?: boolean;
+	CustomValueText?: React.ReactNode;
+	onValueChange?: Select.RootProps<SelectItem>['onValueChange'];
 };
 
-const SelectV2 = ({
+const BaseSelect = ({
 	items = [],
 	status,
 	label,
+	className,
 	ref,
 	placeholder,
 	disabled,
 	deselectable,
 	supportingText,
 	loopFocus,
-	clearable
-}: SelectProps) => {
+	clearable,
+	value,
+	multiple,
+	onValueChange,
+	CustomValueText,
+	...rest
+}: BaseSelectProps) => {
 	const collection = createListCollection({ items });
+
 	return (
 		<Select.Root
-			className="Select_Root"
+			className={classNames('Select_Root', className)}
 			collection={collection}
 			disabled={disabled}
 			deselectable={deselectable}
 			loopFocus={loopFocus}
+			value={value}
+			multiple={multiple}
+			onValueChange={onValueChange}
 		>
 			<Select.Label className="FormLabel" data-status={status}>
 				{label}
 			</Select.Label>
-			<Select.Control asChild>
-				<>
-					<Select.Trigger ref={ref} className="Select_Field" data-status={status}>
-						<Select.ValueText className="Select_Value" placeholder={placeholder} />
-						<div className="Select_TrailingIcon">
-							<ChevronDownIcon className="Select_ToggleIcon" width={20} height={20} />
-							{clearable ? (
-								<Select.ClearTrigger className="Select_ClearButton">
-									<Cross2Icon width={20} height={20} />
-								</Select.ClearTrigger>
-							) : null}
-						</div>
-					</Select.Trigger>
-				</>
-			</Select.Control>
+
+			<Select.Trigger ref={ref} className="Select_Field" data-status={status} {...rest}>
+				{CustomValueText ?? (
+					<Select.ValueText className="Select_Value" placeholder={placeholder} />
+				)}
+				<div className="Select_TrailingIcon">
+					<ChevronDownIcon className="Select_ToggleIcon" width={20} height={20} />
+					{clearable ? (
+						<Select.ClearTrigger className="Select_ClearButton">
+							<Cross2Icon width={20} height={20} />
+						</Select.ClearTrigger>
+					) : null}
+				</div>
+			</Select.Trigger>
+
 			<SupportingText status={status}>{supportingText}</SupportingText>
 			<Portal>
 				<Select.Positioner className="Positioner">
@@ -93,4 +108,4 @@ const SelectV2 = ({
 	);
 };
 
-export default SelectV2;
+export default BaseSelect;
