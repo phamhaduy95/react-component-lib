@@ -29,5 +29,6 @@
 	&[data-disabled] {
 		background-color: inherit;
 		color: var(--color-outline-variant);
+		pointer-events: none;
 	}
 }

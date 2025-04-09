@@ -14,10 +14,8 @@
 		padding-right: 12px;
 	}
 
-	&[data-variant='primary'] {
-		background-color: var(--color-primary);
-		border-color: var(--color-primary);
-		color: var(--color-on-primary);
+	> .Tag_RemoveButton {
+		cursor: pointer;
 	}
 
 	&[data-removable] {
@@ -28,7 +26,30 @@
 		}
 	}
 
-	.Tag_RemoveButton {
-		cursor: pointer;
+	&[data-variant='primary'] {
+		background-color: var(--color-primary-container);
+		border-color: var(--color-primary-container);
+		color: var(--color-on-primary-container);
+	}
+
+	&[data-variant='secondary'] {
+		background-color: var(--color-secondary-container);
+		border-color: var(--color-secondary-container);
+		color: var(--color-on-secondary-container);
+	}
+	&[data-variant='success'] {
+		background-color: var(--color-success-container);
+		border-color: var(--color-success-container);
+		color: var(--color-on-success-container);
+	}
+	&[data-variant='warning'] {
+		background-color: var(--color-warning-container);
+		border-color: var(--color-warning-container);
+		color: var(--color-on-warning-container);
+	}
+	&[data-variant='error'] {
+		background-color: var(--color-error-container);
+		border-color: var(--color-error-container);
+		color: var(--color-on-error-container);
 	}
 }
