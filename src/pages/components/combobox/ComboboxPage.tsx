@@ -1,4 +1,4 @@
-import { BaseCombobox } from '@components/Combobox/BaseComboBox';
+import SingleCombobox from '@components/Combobox/SingleComboxbox';
 
 const ComboboxPage = () => {
 	const items = [
@@ -13,7 +13,7 @@ const ComboboxPage = () => {
 	return (
 		<div>
 			<section>
-				<BaseCombobox items={items} />
+				<SingleCombobox items={items} label="Select" />
 			</section>
 		</div>
 	);

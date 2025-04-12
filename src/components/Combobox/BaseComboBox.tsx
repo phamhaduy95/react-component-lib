@@ -89,14 +89,13 @@ export const BaseCombobox = ({
 			onInputValueChange={(data) => {
 				setSearchValue(data.inputValue.trim());
 			}}
-			onExitComplete={() => {
-				setSearchValue('');
-			}}
 			value={value}
 			onValueChange={onValueChange}
 			loopFocus={loopFocus}
 			disabled={disabled}
 			multiple={multiple}
+			onExitComplete={() => setSearchValue('')}
+			onFocusOutside={() => setSearchValue('')}
 		>
 			<Combobox.Label className="FormLabel" data-status={status}>
 				{label}
