@@ -8,8 +8,8 @@ const ComponentsPage = () => {
 				{ href: '/components/button', title: 'Button' },
 				{ href: '/components/text-input', title: 'TextInput' },
 				{
-					href: '/components/navigation-bar',
-					title: 'NavigationBar'
+					href: '/components/calendar',
+					title: 'Calendar'
 				},
 				{
 					href: '/components/scroll-area',

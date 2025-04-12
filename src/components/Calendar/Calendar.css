@@ -1,0 +1,62 @@
+.CalendarView {
+	border: 1px solid var(--color-outline);
+	width: max-content;
+	padding: 16px;
+	border-radius: 8px;
+	color: var(--color-on-surface);
+}
+
+.CalendarViewControl {
+	display: flex;
+	justify-content: space-between;
+	font-weight: 500;
+	font-size: large;
+}
+
+.CalendarHeadCol {
+	width: 42px;
+	height: 42px;
+	text-align: center;
+}
+
+.CalendarTableCell {
+	width: 42px;
+	height: 42px;
+	text-align: center;
+}
+
+.CalendarTableTrigger {
+	user-select: none;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border-radius: 4px;
+	border: 1px solid transparent;
+	font-weight: 500;
+
+	&[data-outside-range] {
+		color: var(--color-outline-variant);
+	}
+
+	&[data-disabled] {
+		color: var(--color-outline-variant);
+		pointer-events: none;
+	}
+
+	&[data-today] {
+		border-color: var(--color-outline);
+	}
+
+	&:hover {
+		border-color: var(--color-primary);
+	}
+
+	&[data-selected] {
+		border-color: var(--color-primary);
+		background-color: var(--color-primary);
+		color: var(--color-on-primary);
+	}
+}
