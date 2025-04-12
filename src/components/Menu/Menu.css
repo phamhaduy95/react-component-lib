@@ -31,4 +31,12 @@
 		color: var(--color-outline-variant);
 		pointer-events: none;
 	}
+
+	&[data-state='checked'] {
+		background-color: var(--color-primary-container);
+		color: var(--color-on-primary-container);
+	}
+	&[data-state='checked'] > .MenuItem_TrailingIcon {
+		color: var(--color-primary);
+	}
 }

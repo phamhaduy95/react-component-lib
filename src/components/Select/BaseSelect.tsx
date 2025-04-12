@@ -1,7 +1,7 @@
 import { Portal } from '@ark-ui/react/portal';
 import { Select, createListCollection } from '@ark-ui/react/select';
 import SupportingText from '@components/SupportingText';
-import { FormStatus } from '@components/type';
+import { FieldStatus } from '@components/type';
 import { CheckIcon, ChevronDownIcon, Cross2Icon } from '@radix-ui/react-icons';
 import { HTMLAttributes, Ref } from 'react';
 
@@ -19,7 +19,7 @@ export type BaseSelectProps = HTMLAttributes<HTMLButtonElement> & {
 	placeholder?: string;
 	supportingText?: string;
 	ref?: Ref<HTMLButtonElement>;
-	status?: FormStatus;
+	status?: FieldStatus;
 	required?: boolean;
 	deselectable?: boolean;
 	loopFocus?: boolean;

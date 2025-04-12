@@ -1,4 +1,4 @@
-.Select_Field {
+.Combobox_Field {
 	min-height: var(--spacing-container-lg);
 	cursor: pointer;
 	border: 1px solid var(--color-outline);
@@ -10,33 +10,31 @@
 	align-items: center;
 	display: flex;
 
-	& > .Select_Value {
+	& > .Combobox_Value {
 		text-wrap: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
 	}
 
-	& > .Select_TrailingIcon {
+	& > .Combobox_Input {
+		outline: none;
+		flex-grow: 1;
+		caret-color: var(--color-on-surface);
+	}
+
+	& > .Combobox_Trigger {
 		margin-left: auto;
-		display: flex;
-		align-items: center;
+	}
+
+	& > .Combobox_TriggerIcon {
 		color: var(--color-outline);
-
-		.Select_ClearButton {
-			cursor: pointer;
-		}
-
-		&:has(.Select_ClearButton:not([hidden])) {
-			> .Select_ToggleIcon {
-				display: none;
-			}
-		}
+		cursor: pointer;
 	}
 
 	&[data-placeholder-shown] {
 		color: var(--color-outline);
 	}
-	&:is(:focus, [data-state='open']) {
+	&:is(:focus-within, [data-state='open']) {
 		border: 2px solid var(--color-primary);
 		outline-style: none;
 	}
@@ -51,8 +49,15 @@
 	}
 }
 
-.Menu.SelectContent {
+.Menu.Combobox_Content {
 	min-width: var(--reference-width);
 	max-height: 50dvh;
 	overflow: auto;
+
+	> .Menu_Item:not([data-disabled]) {
+		.HighlightedText {
+			color: var(--color-on-primary-container);
+			font-weight: 600;
+		}
+	}
 }

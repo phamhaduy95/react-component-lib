@@ -1,4 +1,4 @@
-import { FormStatus } from '@components/type';
+import { FieldStatus } from '@components/type';
 import classNames from 'classnames';
 import { createElement, HTMLAttributes, HTMLElementType } from 'react';
 import './FormLabel.css';
@@ -6,7 +6,7 @@ import './FormLabel.css';
 type FormLabelProps = HTMLAttributes<HTMLLabelElement> & {
 	type?: HTMLElementType;
 	children?: React.ReactNode;
-	status?: FormStatus;
+	status?: FieldStatus;
 	className?: string;
 	required?: boolean;
 	htmlFor?: string;

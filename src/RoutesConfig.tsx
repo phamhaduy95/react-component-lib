@@ -1,5 +1,6 @@
 import ComponentsPage from '@pages/components';
 import ButtonPage from '@pages/components/button/ButtonPage';
+import ComboboxPage from '@pages/components/combobox/ComboboxPage';
 import ScrollAreaPage from '@pages/components/scrollArea/ScrollAreaPage';
 import SelectPage from '@pages/components/select/SelectPage';
 import TextInputPage from '@pages/components/text-input/TextInputPage';
@@ -17,6 +18,7 @@ const RouteConfig = () => {
 					<Route path="text-input" element={<TextInputPage />} />
 					<Route path="select" element={<SelectPage />} />
 					<Route path="scroll-area" element={<ScrollAreaPage />} />
+					<Route path="combobox" element={<ComboboxPage />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

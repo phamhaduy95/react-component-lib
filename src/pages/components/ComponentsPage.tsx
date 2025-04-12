@@ -18,6 +18,10 @@ const ComponentsPage = () => {
 				{
 					href: '/components/select',
 					title: 'Select'
+				},
+				{
+					href: '/components/combobox',
+					title: 'Combobox'
 				}
 			],
 			title: 'Components'
