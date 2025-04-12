@@ -94,6 +94,7 @@ export const BaseCombobox = ({
 			loopFocus={loopFocus}
 			disabled={disabled}
 			multiple={multiple}
+			data-mode={multiple ? 'multiple' : undefined}
 			onExitComplete={() => setSearchValue('')}
 			onFocusOutside={() => setSearchValue('')}
 		>

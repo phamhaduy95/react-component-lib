@@ -16,7 +16,15 @@
 		overflow: hidden;
 	}
 
-	& > .Combobox_Input {
+	.Combobox_DisplayArea {
+		display: flex;
+		flex-wrap: wrap;
+		flex-grow: 1;
+		row-gap: 10px;
+		column-gap: 10px;
+	}
+
+	.Combobox_Input {
 		outline: none;
 		flex-grow: 1;
 		caret-color: var(--color-on-surface);
