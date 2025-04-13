@@ -12,6 +12,10 @@ const ComponentsPage = () => {
 					title: 'Calendar'
 				},
 				{
+					href: '/components/datepicker',
+					title: 'DatePicker'
+				},
+				{
 					href: '/components/scroll-area',
 					title: 'ScrollBar'
 				},
