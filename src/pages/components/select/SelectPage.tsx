@@ -17,7 +17,12 @@ const SelectPage = () => {
 		<div className="flex flex-col gap-5">
 			<section>
 				<header>Default</header>
-				<SingleSelect items={items} placeholder="Select a item" label="Select item" />
+				<SingleSelect
+					items={items}
+					placeholder="Select a item"
+					label="Select item"
+					name="Name"
+				/>
 			</section>
 			<section>
 				<header>Clearable</header>

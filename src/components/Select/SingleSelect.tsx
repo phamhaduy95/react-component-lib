@@ -13,7 +13,6 @@ const SingleSelect = ({ value, onValueChange, ...rest }: SingleSelectProps) => {
 
 	return (
 		<BaseSelect
-			data-mode="multiple"
 			value={mappedValue}
 			onValueChange={(selectedValue) => {
 				if (onValueChange) onValueChange(selectedValue.value[0], selectedValue.items[0]);

@@ -25,6 +25,7 @@ export type BaseSelectProps = HTMLAttributes<HTMLButtonElement> & {
 	loopFocus?: boolean;
 	clearable?: boolean;
 	value?: string[];
+	name?: string;
 	multiple?: boolean;
 	CustomValueText?: React.ReactNode;
 	onValueChange?: Select.RootProps<SelectItem>['onValueChange'];
@@ -46,6 +47,7 @@ const BaseSelect = ({
 	multiple,
 	onValueChange,
 	CustomValueText,
+	name,
 	...rest
 }: BaseSelectProps) => {
 	const collection = createListCollection({ items });
@@ -60,6 +62,7 @@ const BaseSelect = ({
 			value={value}
 			multiple={multiple}
 			onValueChange={onValueChange}
+			name={name}
 		>
 			<Select.Label className="FormLabel" data-status={status}>
 				{label}
@@ -103,7 +106,7 @@ const BaseSelect = ({
 					</Select.Content>
 				</Select.Positioner>
 			</Portal>
-			<Select.HiddenSelect />
+			<Select.HiddenSelect name={name} />
 		</Select.Root>
 	);
 };
