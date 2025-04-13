@@ -19,9 +19,8 @@
 	display: flex;
 	color: var(--color-on-background);
 
-	> .DatePicker_Input {
-		flex-grow: 1;
-		outline: none;
+	> .Field_TrailingIcon {
+		margin-left: auto;
 	}
 
 	&[data-placeholder-shown] {

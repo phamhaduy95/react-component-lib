@@ -3,6 +3,7 @@ import { DatePicker as ArkDatePicker, DateValue, parseDate } from '@ark-ui/react
 import { Portal } from '@ark-ui/react/portal';
 import BaseCalendarView from '@components/Calendar/BaseCalendarView';
 import FormLabel from '@components/FormLabel/FormLabel';
+import { CalendarIcon } from '@radix-ui/react-icons';
 import { AriaAttributes, useId, useMemo } from 'react';
 import './DatePicker.css';
 
@@ -57,7 +58,9 @@ const DatePicker = ({
 				aria-label={ariaLabel}
 			>
 				<ArkDatePicker.Input className="DatePicker_Input" />
-				<ArkDatePicker.Trigger>📅</ArkDatePicker.Trigger>
+				<ArkDatePicker.Trigger>
+					<CalendarIcon height={16} width={16} className="cursor-pointer" />
+				</ArkDatePicker.Trigger>
 			</ArkDatePicker.Control>
 			<Portal>
 				<ArkDatePicker.Positioner>

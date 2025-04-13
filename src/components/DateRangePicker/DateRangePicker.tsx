@@ -7,6 +7,7 @@ import {
 import { Portal } from '@ark-ui/react/portal';
 import BaseCalendarView from '@components/Calendar/BaseCalendarView';
 import FormLabel from '@components/FormLabel/FormLabel';
+import { CalendarIcon } from '@radix-ui/react-icons';
 import { AriaAttributes, useId, useMemo } from 'react';
 import './DateRangePicker.css';
 
@@ -65,6 +66,9 @@ const DateRangePicker = ({
 			>
 				<ArkDatePicker.Trigger>
 					<DateRangeDisplay />
+					<div className="Field_TrailingIcon">
+						<CalendarIcon height={16} width={16} />
+					</div>
 				</ArkDatePicker.Trigger>
 			</ArkDatePicker.Control>
 			<Portal>
