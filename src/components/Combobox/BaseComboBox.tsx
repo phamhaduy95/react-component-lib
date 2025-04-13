@@ -4,7 +4,10 @@ import { SelectItem } from '@components/Select/BaseSelect';
 import { CheckIcon, ChevronDownIcon } from '@radix-ui/react-icons';
 import { HTMLAttributes, Ref, useMemo, useState } from 'react';
 
+import SupportingText from '@components/SupportingText';
 import { FieldStatus } from '@components/type';
+import classNames from 'classnames';
+import '../FormField/FormField.css';
 import './ComboBox.css';
 
 export type BaseComboboxProps = HTMLAttributes<HTMLInputElement> & {
@@ -14,7 +17,8 @@ export type BaseComboboxProps = HTMLAttributes<HTMLInputElement> & {
 	label?: string;
 	placeholder?: string;
 	supportingText?: string;
-	ref?: Ref<HTMLInputElement>;
+	ref?: Ref<HTMLDivElement>;
+	inputRef?: Ref<HTMLInputElement>;
 	status?: FieldStatus;
 	required?: boolean;
 	loopFocus?: boolean;
@@ -22,6 +26,7 @@ export type BaseComboboxProps = HTMLAttributes<HTMLInputElement> & {
 	onValueChange?: Combobox.RootProps<SelectItem>['onValueChange'];
 	multiple?: boolean;
 	CustomValueText?: React.ReactNode;
+	'data-testid'?: string;
 };
 
 export const BaseCombobox = ({
@@ -30,11 +35,16 @@ export const BaseCombobox = ({
 	value,
 	onValueChange,
 	loopFocus,
-	placeholder,
 	multiple,
 	disabled,
 	status,
-	CustomValueText
+	className,
+	supportingText,
+	ref,
+	inputRef,
+	'data-testid': dataTestid,
+	CustomValueText,
+	...rest
 }: BaseComboboxProps) => {
 	const [searchValue, setSearchValue] = useState('');
 
@@ -85,6 +95,7 @@ export const BaseCombobox = ({
 
 	return (
 		<Combobox.Root
+			className={classNames('FormField Combobox', className)}
 			collection={collection}
 			onInputValueChange={(data) => {
 				setSearchValue(data.inputValue.trim());
@@ -97,22 +108,26 @@ export const BaseCombobox = ({
 			data-mode={multiple ? 'multiple' : undefined}
 			onExitComplete={() => setSearchValue('')}
 			onFocusOutside={() => setSearchValue('')}
+			ref={ref}
+			data-testid={dataTestid}
 		>
 			<Combobox.Label className="FormLabel" data-status={status}>
 				{label}
 			</Combobox.Label>
-			<Combobox.Control className="Combobox_Field" data-status={status}>
+			<Combobox.Control className="FormField_Field Combobox_Field" data-status={status}>
 				{CustomValueText ?? (
 					<Combobox.Input
 						className="Combobox_Input"
-						placeholder={placeholder}
 						disabled={disabled}
+						ref={inputRef}
+						{...rest}
 					/>
 				)}
 				<Combobox.Trigger className="Combobox_Trigger" aria-label="Trigger popup">
 					<ChevronDownIcon className="Combobox_TriggerIcon" />
 				</Combobox.Trigger>
 			</Combobox.Control>
+			<SupportingText>{supportingText}</SupportingText>
 			<Portal>
 				<Combobox.Positioner>
 					<Combobox.Content className="Menu Combobox_Content">

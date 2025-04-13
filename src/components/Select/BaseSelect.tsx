@@ -3,9 +3,10 @@ import { Select, createListCollection } from '@ark-ui/react/select';
 import SupportingText from '@components/SupportingText';
 import { FieldStatus } from '@components/type';
 import { CheckIcon, ChevronDownIcon, Cross2Icon } from '@radix-ui/react-icons';
-import { HTMLAttributes, Ref } from 'react';
+import { HTMLAttributes, Ref, useId } from 'react';
 
 import classNames from 'classnames';
+import '../FormField/FormField.css';
 import '../Menu/Menu.css';
 import './Select.css';
 
@@ -51,10 +52,10 @@ const BaseSelect = ({
 	...rest
 }: BaseSelectProps) => {
 	const collection = createListCollection({ items });
-
+	const supportingTextId = useId();
 	return (
 		<Select.Root
-			className={classNames('Select_Root', className)}
+			className={classNames('FormField Select_Root', className)}
 			collection={collection}
 			disabled={disabled}
 			deselectable={deselectable}
@@ -70,16 +71,17 @@ const BaseSelect = ({
 
 			<Select.Trigger
 				ref={ref}
-				className="Select_Field"
+				className="FormField_Field Select_InputField"
 				data-status={status}
 				{...rest}
 				asChild
+				aria-describedby={supportingTextId}
 			>
 				<div tabIndex={0}>
 					{CustomValueText ?? (
 						<Select.ValueText className="Select_Value" placeholder={placeholder} />
 					)}
-					<div className="Select_TrailingIcon">
+					<div className="FormField_TrailingIcon">
 						<ChevronDownIcon className="Select_ToggleIcon" width={20} height={20} />
 						{clearable ? (
 							<Select.ClearTrigger className="Select_ClearButton">
@@ -89,8 +91,9 @@ const BaseSelect = ({
 					</div>
 				</div>
 			</Select.Trigger>
-
-			<SupportingText status={status}>{supportingText}</SupportingText>
+			<SupportingText show={!!supportingText} status={status} id={supportingTextId}>
+				{supportingText}
+			</SupportingText>
 			<Portal>
 				<Select.Positioner className="Positioner">
 					<Select.Content className="Menu SelectContent" asChild>

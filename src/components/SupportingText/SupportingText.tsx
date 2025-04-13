@@ -7,14 +7,23 @@ export type SupportingTextProps = React.HTMLAttributes<HTMLParagraphElement> & {
 	status?: FieldStatus;
 	isDisplayed?: boolean;
 	className?: string;
+	show?: boolean;
 };
 
-const SupportingText = ({ children, className, status, ...rest }: SupportingTextProps) => {
-	return (
-		<p {...rest} className={classNames(className, 'SupportingText')} data-status={status}>
-			{children}
-		</p>
-	);
+const SupportingText = ({
+	children,
+	className,
+	status,
+	show = true,
+	...rest
+}: SupportingTextProps) => {
+	if (show)
+		return (
+			<p {...rest} className={classNames(className, 'SupportingText')} data-status={status}>
+				{children}
+			</p>
+		);
+	return null;
 };
 
 export default SupportingText;

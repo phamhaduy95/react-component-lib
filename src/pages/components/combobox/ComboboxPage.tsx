@@ -1,4 +1,5 @@
 import { MultipleCombobox } from '@components/Combobox';
+import SingleCombobox from '@components/Combobox/SingleCombobox';
 
 const ComboboxPage = () => {
 	const items = [
@@ -12,8 +13,23 @@ const ComboboxPage = () => {
 
 	return (
 		<div>
-			<section>
-				<MultipleCombobox items={items} />
+			<section className="mb-8">
+				<header> Multiple Combobox</header>
+				<MultipleCombobox
+					items={items}
+					label="Multiple combobox"
+					supportingText="please"
+					placeholder="Search"
+				/>
+			</section>
+			<section className="mb-5">
+				<header> Single Combobox</header>
+				<SingleCombobox
+					items={items}
+					label="Select one item"
+					supportingText="pick item that you like"
+					placeholder="Search"
+				/>
 			</section>
 		</div>
 	);

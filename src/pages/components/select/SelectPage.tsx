@@ -13,8 +13,10 @@ const SelectPage = () => {
 
 	const [selected, setSelectedItem] = useState<string>();
 
+	const [selectedItems, setSelectedItems] = useState<string[]>([]);
+
 	return (
-		<div className="flex flex-col gap-5">
+		<div className="flex flex-col gap-y-8">
 			<section>
 				<header>Default</header>
 				<SingleSelect
@@ -24,6 +26,39 @@ const SelectPage = () => {
 					name="Name"
 				/>
 			</section>
+			<section>
+				<header>FormState</header>
+				<div className="grid grid-cols-2 gap-4 gap-y-6">
+					<SingleSelect
+						items={items}
+						placeholder="Select a item"
+						label="Default Select"
+						supportingText="default state"
+					/>
+					<SingleSelect
+						items={items}
+						status="error"
+						placeholder="Select a item"
+						label="Error select"
+						supportingText="Error state"
+					/>
+					<SingleSelect
+						items={items}
+						status="success"
+						placeholder="Select a item"
+						label="Success select"
+						supportingText="Success state"
+					/>
+					<SingleSelect
+						items={items}
+						status="warning"
+						placeholder="Select a item"
+						label="Warning select"
+						supportingText="Warning state"
+					/>
+				</div>
+			</section>
+
 			<section>
 				<header>Clearable</header>
 				<SingleSelect
@@ -44,12 +79,17 @@ const SelectPage = () => {
 					value={selected}
 					onValueChange={setSelectedItem}
 				/>
-				<p> Selected Value: {selected}</p>
+				<p className="mt-4"> Selected Value: {selected}</p>
 			</section>
 			<section>
 				<header>Multiple Select</header>
-				<MultipleSelect items={items} placeholder="Select a item" />
-				<p> Selected Value: {selected}</p>
+				<MultipleSelect
+					items={items}
+					placeholder="Select a item"
+					value={selectedItems}
+					onValueChange={(value) => setSelectedItems(value ?? [])}
+				/>
+				<p className="mt-4"> Selected Items: {selectedItems.join(', ')}</p>
 			</section>
 		</div>
 	);

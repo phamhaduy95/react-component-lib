@@ -1,6 +1,7 @@
 import { Combobox, useComboboxContext, UseComboboxContext } from '@ark-ui/react';
 import { SelectItem } from '@components/Select/BaseSelect';
 import { Tag } from '@components/Tag/Tag';
+import { Ref } from 'react';
 import { BaseCombobox, BaseComboboxProps } from './BaseComboBox';
 
 export type MultipleComboboxProps = Omit<
@@ -11,7 +12,13 @@ export type MultipleComboboxProps = Omit<
 	onValueChange?: (value: string[], item?: SelectItem[]) => void;
 };
 
-const MultipleCombobox = ({ value, onValueChange, ...rest }: MultipleComboboxProps) => {
+const MultipleCombobox = ({
+	value,
+	onValueChange,
+	placeholder,
+	inputRef,
+	...rest
+}: MultipleComboboxProps) => {
 	const handleValueChange: BaseComboboxProps['onValueChange'] = (data) => {
 		if (onValueChange) onValueChange(data.value, data.items);
 	};
@@ -22,21 +29,26 @@ const MultipleCombobox = ({ value, onValueChange, ...rest }: MultipleComboboxPro
 			value={value}
 			onValueChange={handleValueChange}
 			multiple
-			CustomValueText={<MultipleComboboxDisplayValue />}
+			CustomValueText={
+				<MultipleComboboxDisplayValue placeholder={placeholder} ref={inputRef} />
+			}
 		/>
 	);
 };
 
 export default MultipleCombobox;
 
-const MultipleComboboxDisplayValue = () => {
+export type MultipleComboboxDisplayValueProps = {
+	placeholder?: string;
+	ref?: Ref<HTMLInputElement>;
+};
+
+const MultipleComboboxDisplayValue = ({ placeholder, ref }: MultipleComboboxDisplayValueProps) => {
 	const {
 		selectedItems = [],
-		getRootProps,
 		clearValue,
 		focus
 	}: UseComboboxContext<SelectItem> = useComboboxContext();
-	const { placeholder }: MultipleComboboxProps = getRootProps();
 
 	const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 		const { key } = e;
@@ -47,6 +59,9 @@ const MultipleComboboxDisplayValue = () => {
 			clearValue(lastSelectedItem.value);
 		}
 	};
+
+	const displayedPlaceholder =
+		placeholder && selectedItems.length === 0 ? placeholder : undefined;
 
 	return (
 		<div className="Combobox_DisplayArea">
@@ -62,9 +77,10 @@ const MultipleComboboxDisplayValue = () => {
 				/>
 			))}
 			<Combobox.Input
-				placeholder={placeholder}
 				className="Combobox_Input"
 				onKeyDown={handleKeydown}
+				placeholder={displayedPlaceholder}
+				ref={ref}
 			/>
 		</div>
 	);

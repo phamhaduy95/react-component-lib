@@ -1,3 +1,4 @@
+import '@components/FormField/FormField.css';
 import FormLabel from '@components/FormLabel/FormLabel';
 import SupportingText from '@components/SupportingText/SupportingText';
 import { FieldStatus } from '@components/type';
@@ -41,7 +42,7 @@ const TextInput = ({
 	};
 
 	return (
-		<div className={classNames('TextInput', className)}>
+		<div className={classNames('FormField TextInput', className)}>
 			<FormLabel
 				className="TextInputLabel"
 				htmlFor={inputId}
@@ -50,7 +51,11 @@ const TextInput = ({
 			>
 				{labelText}
 			</FormLabel>
-			<div className="TextInput_InputField" data-status={status} data-clearable={clearable}>
+			<div
+				className="FormField_Field TextInput_InputField"
+				data-status={status}
+				data-clearable={clearable}
+			>
 				<input
 					className="TextInput_Input"
 					id={inputId}
@@ -63,9 +68,10 @@ const TextInput = ({
 				/>
 			</div>
 			<SupportingText
-				className="TextInput_SupportingText"
+				className="FormField_SupportingText TextInput_SupportingText"
 				id={supportingTextId}
 				status={status}
+				show={!!supportingText}
 			>
 				{supportingText}
 			</SupportingText>
