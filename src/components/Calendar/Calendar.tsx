@@ -1,60 +1,33 @@
 import { DatePicker } from '@ark-ui/react/date-picker';
-import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
-import './Calendar.css';
+import classNames from 'classnames';
+import BaseCalendarView from './BaseCalendarView';
 
-const Calendar = () => {
+type CalendarProps = Pick<
+	DatePicker.RootProps,
+	| 'value'
+	| 'view'
+	| 'startOfWeek'
+	| 'onValueChange'
+	| 'max'
+	| 'min'
+	| 'selectionMode'
+	| 'timeZone'
+	| 'fixedWeeks'
+> & {
+	className?: string;
+};
+
+const Calendar = ({ className, ...rest }: CalendarProps) => {
 	return (
-		<DatePicker.Root open className="Calendar" view="day">
-			<DatePicker.View view="day" className="CalendarView">
-				<DatePicker.Context>
-					{(datePicker) => (
-						<>
-							<DatePicker.ViewControl className="CalendarViewControl">
-								<DatePicker.PrevTrigger className="cursor-pointer">
-									<ChevronLeftIcon height={20} width={20} />
-								</DatePicker.PrevTrigger>
-								<DatePicker.RangeText />
-								<DatePicker.NextTrigger className="cursor-pointer">
-									<ChevronRightIcon height={20} width={20} />
-								</DatePicker.NextTrigger>
-							</DatePicker.ViewControl>
-							<DatePicker.Table className="CalendarTable">
-								<DatePicker.TableHead className="CalendarHeader">
-									<DatePicker.TableRow>
-										{datePicker.weekDays.map((weekDay, id) => (
-											<DatePicker.TableHeader
-												key={id}
-												className="CalendarHeadCol"
-											>
-												{weekDay.short}
-											</DatePicker.TableHeader>
-										))}
-									</DatePicker.TableRow>
-								</DatePicker.TableHead>
-								<DatePicker.TableBody className="CalendarBody">
-									{datePicker.weeks.map((week, id) => (
-										<DatePicker.TableRow key={id}>
-											{week.map((day, id) => (
-												<DatePicker.TableCell
-													key={id}
-													value={day}
-													className="CalendarTableCell"
-												>
-													<DatePicker.TableCellTrigger className="CalendarTableTrigger">
-														{day.day}
-													</DatePicker.TableCellTrigger>
-												</DatePicker.TableCell>
-											))}
-										</DatePicker.TableRow>
-									))}
-								</DatePicker.TableBody>
-							</DatePicker.Table>
-						</>
-					)}
-				</DatePicker.Context>
-			</DatePicker.View>
+		<DatePicker.Root
+			open
+			className={classNames('Calendar', className)}
+			closeOnSelect={false}
+			role="application"
+			{...rest}
+		>
+			<BaseCalendarView />
 		</DatePicker.Root>
 	);
 };
-
 export default Calendar;

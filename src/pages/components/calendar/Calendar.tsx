@@ -3,7 +3,7 @@ import Calendar from '@components/Calendar';
 const CalendarPage = () => {
 	return (
 		<div>
-			<Calendar />
+			<Calendar selectionMode="range" />
 		</div>
 	);
 };
