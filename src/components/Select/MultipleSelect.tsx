@@ -26,7 +26,11 @@ type DisplayedSelectValueProps = {
 };
 
 const DisplayedSelectValue = ({ placeholder }: DisplayedSelectValueProps) => {
-	const { selectedItems = [], clearValue }: UseSelectContext<SelectItem> = useSelectContext();
+	const {
+		selectedItems = [],
+		clearValue,
+		focus
+	}: UseSelectContext<SelectItem> = useSelectContext();
 
 	if (selectedItems.length === 0) return <span className="Select_Value">{placeholder}</span>;
 	return (
@@ -38,6 +42,7 @@ const DisplayedSelectValue = ({ placeholder }: DisplayedSelectValueProps) => {
 					onRemoveClick={(e) => {
 						e.stopPropagation();
 						clearValue(item.value);
+						focus();
 					}}
 				/>
 			))}

@@ -9,7 +9,7 @@ export type TagProps = HTMLAttributes<HTMLDivElement> & {
 	label?: string;
 	removable?: boolean;
 	className?: string;
-	onRemoveClick?: (e: React.MouseEvent) => void;
+	onRemoveClick?: (e: React.SyntheticEvent) => void;
 	ref?: Ref<HTMLDivElement>;
 	size?: TagSize;
 	variant?: TagVariant;
@@ -25,6 +25,17 @@ export const Tag = ({
 	variant = 'primary',
 	...rest
 }: TagProps) => {
+	const handleOnkeyDown = (e: React.KeyboardEvent) => {
+		e.stopPropagation();
+		const key = e.key;
+		switch (key) {
+			case 'Enter':
+			case 'Backspace':
+			case 'Delete':
+				if (onRemoveClick) onRemoveClick(e);
+		}
+	};
+
 	return (
 		<div
 			className={classNames('Tag', className)}
@@ -39,8 +50,8 @@ export const Tag = ({
 				<button
 					className="Tag_RemoveButton"
 					onClick={onRemoveClick}
-					type="button"
 					aria-label="Remove Tag"
+					onKeyDown={handleOnkeyDown}
 				>
 					<Cross2Icon />
 				</button>

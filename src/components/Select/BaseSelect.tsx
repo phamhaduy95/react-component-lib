@@ -68,17 +68,25 @@ const BaseSelect = ({
 				{label}
 			</Select.Label>
 
-			<Select.Trigger ref={ref} className="Select_Field" data-status={status} {...rest}>
-				{CustomValueText ?? (
-					<Select.ValueText className="Select_Value" placeholder={placeholder} />
-				)}
-				<div className="Select_TrailingIcon">
-					<ChevronDownIcon className="Select_ToggleIcon" width={20} height={20} />
-					{clearable ? (
-						<Select.ClearTrigger className="Select_ClearButton">
-							<Cross2Icon width={20} height={20} />
-						</Select.ClearTrigger>
-					) : null}
+			<Select.Trigger
+				ref={ref}
+				className="Select_Field"
+				data-status={status}
+				{...rest}
+				asChild
+			>
+				<div tabIndex={0}>
+					{CustomValueText ?? (
+						<Select.ValueText className="Select_Value" placeholder={placeholder} />
+					)}
+					<div className="Select_TrailingIcon">
+						<ChevronDownIcon className="Select_ToggleIcon" width={20} height={20} />
+						{clearable ? (
+							<Select.ClearTrigger className="Select_ClearButton">
+								<Cross2Icon width={20} height={20} />
+							</Select.ClearTrigger>
+						) : null}
+					</div>
 				</div>
 			</Select.Trigger>
 

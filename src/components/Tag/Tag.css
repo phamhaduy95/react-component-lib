@@ -16,6 +16,7 @@
 
 	> .Tag_RemoveButton {
 		cursor: pointer;
+		transition: transform 100ms ease-in-out;
 	}
 
 	&[data-removable] {
@@ -23,6 +24,15 @@
 
 		> .Tag_Label {
 			padding-right: 8px;
+		}
+
+		&:focus-within {
+			border-color: var(--color-primary);
+
+			> .Tag_RemoveButton {
+				outline: none;
+				transform: scale(1.1, 1.1);
+			}
 		}
 	}
 
