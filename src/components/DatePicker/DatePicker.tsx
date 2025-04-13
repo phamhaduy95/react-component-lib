@@ -43,7 +43,7 @@ const DatePicker = ({
 			id={id}
 			value={internalValue}
 			onValueChange={handleDateChange}
-			selectionMode="range"
+			selectionMode="single"
 			open={open}
 			onOpenChange={onOpenChange}
 		>
