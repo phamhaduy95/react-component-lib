@@ -3,7 +3,7 @@ import { Ref } from 'react';
 import './Button.css';
 type ButtonVariant = 'filled' | 'outlined' | 'text';
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 	children?: React.ReactNode;
 	ref?: Ref<HTMLButtonElement>;
 	variant?: ButtonVariant;

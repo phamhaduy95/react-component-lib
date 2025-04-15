@@ -25,9 +25,9 @@
         "baseUrl": ".",
         "paths": {
             "@styles/*": ["src/styles/*"],
-            "@components/*": ["src/components/*"],
+            "@components/*": ["lib/components/*"],
             "@pages/*": ["src/pages/*"],
         },
     },
-	"include": ["src", "tailwind.config.js"]
+	"include": ["src", "tailwind.config.js", "lib/components"]
 }
