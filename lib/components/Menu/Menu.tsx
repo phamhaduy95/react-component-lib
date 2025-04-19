@@ -1,37 +1,35 @@
 import { Menu as ArkMenu } from '@ark-ui/react/menu';
 import { ItemObject } from '@components/type';
 import classNames from 'classnames';
+import { JSX } from 'react';
 import SubMenu from './SubMenu';
 
-// it should allow user to group items together under one category
-// it should allow user customize the menu item internal structure
-// it should support multiple nesting of submenu
-
-type StandardItem = ItemObject & {
+interface StandardItem extends ItemObject {
 	type?: never;
-};
+}
 
-export type NestedMenu = ItemObject & {
+export interface NestedMenu extends ItemObject {
 	type: 'nested';
 	items: MenuItem[];
-};
+}
 
-type GroupItem = ItemObject & {
+interface GroupItem extends ItemObject {
 	type: 'group';
 	items: MenuItem[];
-};
+}
 
 type MenuItem = StandardItem | NestedMenu | GroupItem;
 
-export type DropdownMenuProps = {
+export interface DropdownMenuProps {
 	className?: string;
 	items?: MenuItem[];
 	children?: React.ReactNode;
 	CustomTrigger?: React.ReactNode;
 	CustomItem?: (item: ItemObject) => React.ReactNode;
-};
+}
 
-const DropdownMenu = ({ items = [], className, CustomTrigger, children }: DropdownMenuProps) => {
+const DropdownMenu = (props: DropdownMenuProps): JSX.Element => {
+	const { items = [], className, CustomTrigger, children } = props;
 	return (
 		<ArkMenu.Root>
 			<ArkMenu.Trigger

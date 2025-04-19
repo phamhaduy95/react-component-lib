@@ -3,7 +3,7 @@ import { Collapsible as RadixCollapsible } from 'radix-ui';
 import { JSX, useState } from 'react';
 import './Collapsible.css';
 
-type CollapsibleProps = {
+interface CollapsibleProps {
 	isOpen?: boolean;
 	defaultOpen?: boolean;
 	disabled?: boolean;
@@ -13,19 +13,20 @@ type CollapsibleProps = {
 	Trigger: (props: { open: boolean; className?: string }) => JSX.Element;
 	overrideTrigger?: boolean;
 	overrideContent?: boolean;
-};
+}
 
-const Collapsible = ({
-	defaultOpen = false,
-	isOpen,
-	onOpenChange,
-	className,
-	disabled,
-	Trigger,
-	children,
-	overrideTrigger,
-	overrideContent
-}: CollapsibleProps) => {
+const Collapsible = (props: CollapsibleProps) => {
+	const {
+		defaultOpen = false,
+		isOpen,
+		onOpenChange,
+		className,
+		disabled,
+		Trigger,
+		children,
+		overrideTrigger,
+		overrideContent
+	} = props;
 	const [internalOpen, setInternalOpen] = useState(defaultOpen);
 
 	const open = isOpen ?? internalOpen;

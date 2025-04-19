@@ -1,12 +1,16 @@
 import { useSelectContext, UseSelectContext } from '@ark-ui/react/select';
-import { Tag } from '@components/Tag/Tag';
+import { JSX } from 'react';
+import { Tag } from '../Tag';
 import BaseSelect, { BaseSelectProps, SelectItem } from './BaseSelect';
 
-export type MultipleSelectProps = Omit<BaseSelectProps, 'value' | 'onValueChange'> & {
+export interface MultipleSelectProps extends Omit<BaseSelectProps, 'value' | 'onValueChange'> {
 	value?: string[];
 	onValueChange?: (value: string[], item: SelectItem[]) => void;
-};
-const MultipleSelect = ({ value, onValueChange, ...rest }: MultipleSelectProps) => {
+}
+
+const MultipleSelect = (props: MultipleSelectProps): JSX.Element => {
+	const { value, onValueChange, ...rest } = props;
+
 	return (
 		<BaseSelect
 			multiple
@@ -19,6 +23,8 @@ const MultipleSelect = ({ value, onValueChange, ...rest }: MultipleSelectProps) 
 		/>
 	);
 };
+
+export default MultipleSelect;
 
 type DisplayedSelectValueProps = {
 	placeholder?: string;
@@ -49,5 +55,3 @@ const DisplayedSelectValue = ({ placeholder }: DisplayedSelectValueProps) => {
 		</div>
 	);
 };
-
-export default MultipleSelect;

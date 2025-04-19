@@ -1,11 +1,12 @@
 import { Cross2Icon } from '@radix-ui/react-icons';
 import classNames from 'classnames';
-import { HTMLAttributes, Ref } from 'react';
+import { HTMLAttributes, JSX, Ref } from 'react';
 import './Tag.css';
+
 type TagSize = 'small' | 'default';
 type TagVariant = 'primary' | 'secondary' | 'error' | 'success' | 'warning' | 'outlined';
 
-export type TagProps = HTMLAttributes<HTMLDivElement> & {
+export interface TagProps extends HTMLAttributes<HTMLDivElement> {
 	label?: string;
 	removable?: boolean;
 	className?: string;
@@ -13,18 +14,20 @@ export type TagProps = HTMLAttributes<HTMLDivElement> & {
 	ref?: Ref<HTMLDivElement>;
 	size?: TagSize;
 	variant?: TagVariant;
-};
+}
 
-export const Tag = ({
-	label,
-	removable,
-	className,
-	ref,
-	onRemoveClick,
-	size,
-	variant = 'primary',
-	...rest
-}: TagProps) => {
+const Tag = (props: TagProps): JSX.Element => {
+	const {
+		label,
+		removable,
+		className,
+		ref,
+		onRemoveClick,
+		size,
+		variant = 'primary',
+		...rest
+	} = props;
+
 	const handleOnkeyDown = (e: React.KeyboardEvent) => {
 		e.stopPropagation();
 		const key = e.key;
@@ -59,3 +62,5 @@ export const Tag = ({
 		</div>
 	);
 };
+
+export default Tag;

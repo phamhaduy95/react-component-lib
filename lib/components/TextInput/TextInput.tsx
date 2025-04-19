@@ -3,10 +3,10 @@ import FormLabel from '@components/FormLabel/FormLabel';
 import SupportingText from '@components/SupportingText/SupportingText';
 import { FieldStatus } from '@components/type';
 import classNames from 'classnames';
-import { FormEvent, HTMLAttributes, useId } from 'react';
+import { FormEvent, HTMLAttributes, JSX, useId } from 'react';
 import './TextInput.css';
 
-export type TextInputProp = HTMLAttributes<HTMLInputElement> & {
+export interface TextInputProp extends HTMLAttributes<HTMLInputElement> {
 	value?: string;
 	onValueChange?: (value: string) => void;
 	labelText?: string;
@@ -17,21 +17,23 @@ export type TextInputProp = HTMLAttributes<HTMLInputElement> & {
 	className?: string;
 	required?: boolean;
 	name?: string;
-};
+}
 
-const TextInput = ({
-	labelText,
-	value,
-	className,
-	status,
-	required,
-	clearable,
-	disabled,
-	supportingText,
-	onChange,
-	onValueChange,
-	...rest
-}: TextInputProp) => {
+const TextInput = (props: TextInputProp): JSX.Element => {
+	const {
+		labelText,
+		value,
+		className,
+		status,
+		required,
+		clearable,
+		disabled,
+		supportingText,
+		onChange,
+		onValueChange,
+		...rest
+	} = props;
+
 	const inputId = useId();
 	const supportingTextId = useId();
 

@@ -1,24 +1,19 @@
 import { Combobox, useComboboxContext, UseComboboxContext } from '@ark-ui/react';
 import { SelectItem } from '@components/Select/BaseSelect';
-import { Tag } from '@components/Tag/Tag';
-import { Ref } from 'react';
+import { JSX, Ref } from 'react';
+
+import { Tag } from '../Tag';
 import { BaseCombobox, BaseComboboxProps } from './BaseComboBox';
 
-export type MultipleComboboxProps = Omit<
-	BaseComboboxProps,
-	'value' | 'onValueChange' | 'multiple'
-> & {
+export interface MultipleComboboxProps
+	extends Omit<BaseComboboxProps, 'value' | 'onValueChange' | 'multiple'> {
 	value?: string[];
 	onValueChange?: (value: string[], item?: SelectItem[]) => void;
-};
+}
 
-const MultipleCombobox = ({
-	value,
-	onValueChange,
-	placeholder,
-	inputRef,
-	...rest
-}: MultipleComboboxProps) => {
+const MultipleCombobox = (props: MultipleComboboxProps): JSX.Element => {
+	const { value, onValueChange, placeholder, inputRef, ...rest } = props;
+
 	const handleValueChange: BaseComboboxProps['onValueChange'] = (data) => {
 		if (onValueChange) onValueChange(data.value, data.items);
 	};
@@ -38,7 +33,7 @@ const MultipleCombobox = ({
 
 export default MultipleCombobox;
 
-export type MultipleComboboxDisplayValueProps = {
+type MultipleComboboxDisplayValueProps = {
 	placeholder?: string;
 	ref?: Ref<HTMLInputElement>;
 };

@@ -1,15 +1,16 @@
 import { SelectItem } from '@components/Select/BaseSelect';
+import { JSX } from 'react';
 import { BaseCombobox, BaseComboboxProps } from './BaseComboBox';
 
-export type SingleComboboxProps = Omit<
-	BaseComboboxProps,
-	'value' | 'onValueChange' | 'multiple'
-> & {
+export interface SingleComboboxProps
+	extends Omit<BaseComboboxProps, 'value' | 'onValueChange' | 'multiple'> {
 	value?: string;
 	onValueChange?: (value: string, item?: SelectItem) => void;
-};
+}
 
-const SingleCombobox = ({ value, onValueChange, ...rest }: SingleComboboxProps) => {
+const SingleCombobox = (props: SingleComboboxProps): JSX.Element => {
+	const { value, onValueChange, ...rest } = props;
+
 	const internalValue = value ? [value] : undefined;
 
 	const handleValueChange: BaseComboboxProps['onValueChange'] = (data) => {

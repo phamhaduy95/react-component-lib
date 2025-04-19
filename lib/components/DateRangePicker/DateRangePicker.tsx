@@ -11,28 +11,23 @@ import { CalendarIcon } from '@radix-ui/react-icons';
 import { AriaAttributes, useId, useMemo } from 'react';
 import './DateRangePicker.css';
 
-type DateRangePickerProps = AriaAttributes &
-	Pick<
-		ArkDatePicker.RootProps,
-		'selectionMode' | 'open' | 'onOpenChange' | 'fixedWeeks' | 'format'
-	> & {
-		label?: string;
-		id?: string;
-		inputId?: string;
-		'data-testid'?: string;
-		value?: string[];
-		onValueChange?: (value?: string[]) => void;
-	};
+export interface DateRangePickerProps
+	extends AriaAttributes,
+		Pick<
+			ArkDatePicker.RootProps,
+			'selectionMode' | 'open' | 'onOpenChange' | 'fixedWeeks' | 'format'
+		> {
+	label?: string;
+	id?: string;
+	inputId?: string;
+	'data-testid'?: string;
+	value?: string[];
+	onValueChange?: (value?: string[]) => void;
+}
 
-const DateRangePicker = ({
-	label,
-	'aria-label': ariaLabel,
-	id,
-	value,
-	onValueChange,
-	open,
-	onOpenChange
-}: DateRangePickerProps) => {
+const DateRangePicker = (props: DateRangePickerProps) => {
+	const { label, 'aria-label': ariaLabel, id, value, onValueChange, open, onOpenChange } = props;
+
 	const uuid = useId();
 
 	const internalValue = useMemo(() => (value ? parseDate(value) : undefined), [value]);

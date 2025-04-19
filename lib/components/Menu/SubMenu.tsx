@@ -1,10 +1,12 @@
 import { Menu } from '@ark-ui/react/menu';
 import { ChevronRightIcon } from '@radix-ui/react-icons';
+import { JSX } from 'react';
 import { NestedMenu } from './Menu';
 
 export type SubMenuProps = NestedMenu;
 
-const SubMenu = ({ items, label }: SubMenuProps) => {
+const SubMenu = (props: SubMenuProps): JSX.Element => {
+	const { items, label } = props;
 	return (
 		<Menu.Root>
 			<Menu.TriggerItem className="Menu_Item">

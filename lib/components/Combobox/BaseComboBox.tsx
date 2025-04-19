@@ -2,7 +2,7 @@ import { Combobox, createListCollection } from '@ark-ui/react/combobox';
 import { Portal } from '@ark-ui/react/portal';
 import { SelectItem } from '@components/Select/BaseSelect';
 import { CheckIcon, ChevronDownIcon } from '@radix-ui/react-icons';
-import { HTMLAttributes, Ref, useMemo, useState } from 'react';
+import { HTMLAttributes, JSX, Ref, useMemo, useState } from 'react';
 
 import SupportingText from '@components/SupportingText';
 import { FieldStatus } from '@components/type';
@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import '../FormField/FormField.css';
 import './ComboBox.css';
 
-export type BaseComboboxProps = HTMLAttributes<HTMLInputElement> & {
+export interface BaseComboboxProps extends HTMLAttributes<HTMLInputElement> {
 	className?: string;
 	disabled?: boolean;
 	items?: Array<SelectItem>;
@@ -27,25 +27,27 @@ export type BaseComboboxProps = HTMLAttributes<HTMLInputElement> & {
 	multiple?: boolean;
 	CustomValueText?: React.ReactNode;
 	'data-testid'?: string;
-};
+}
 
-export const BaseCombobox = ({
-	label,
-	items = [],
-	value,
-	onValueChange,
-	loopFocus,
-	multiple,
-	disabled,
-	status,
-	className,
-	supportingText,
-	ref,
-	inputRef,
-	'data-testid': dataTestid,
-	CustomValueText,
-	...rest
-}: BaseComboboxProps) => {
+export const BaseCombobox = (props: BaseComboboxProps): JSX.Element => {
+	const {
+		label,
+		items = [],
+		value,
+		onValueChange,
+		loopFocus,
+		multiple,
+		disabled,
+		status,
+		className,
+		supportingText,
+		ref,
+		inputRef,
+		'data-testid': dataTestid,
+		CustomValueText,
+		...rest
+	} = props;
+
 	const [searchValue, setSearchValue] = useState('');
 
 	const filteredItems = useMemo(() => {

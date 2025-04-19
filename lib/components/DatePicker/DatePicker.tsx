@@ -4,31 +4,26 @@ import { Portal } from '@ark-ui/react/portal';
 import BaseCalendarView from '@components/Calendar/BaseCalendarView';
 import FormLabel from '@components/FormLabel/FormLabel';
 import { CalendarIcon } from '@radix-ui/react-icons';
-import { AriaAttributes, useId, useMemo } from 'react';
+import { AriaAttributes, JSX, useId, useMemo } from 'react';
 import './DatePicker.css';
 
-type DatePickerProps = AriaAttributes &
-	Pick<
-		ArkDatePicker.RootProps,
-		'selectionMode' | 'open' | 'onOpenChange' | 'fixedWeeks' | 'format'
-	> & {
-		label?: string;
-		id?: string;
-		inputId?: string;
-		'data-testid'?: string;
-		value?: string;
-		onValueChange?: (value?: string, date?: DateValue) => void;
-	};
+interface DatePickerProps
+	extends AriaAttributes,
+		Pick<
+			ArkDatePicker.RootProps,
+			'selectionMode' | 'open' | 'onOpenChange' | 'fixedWeeks' | 'format'
+		> {
+	label?: string;
+	id?: string;
+	inputId?: string;
+	'data-testid'?: string;
+	value?: string;
+	onValueChange?: (value?: string, date?: DateValue) => void;
+}
 
-const DatePicker = ({
-	label,
-	'aria-label': ariaLabel,
-	id,
-	value,
-	onValueChange,
-	open,
-	onOpenChange
-}: DatePickerProps) => {
+const DatePicker = (props: DatePickerProps): JSX.Element => {
+	const { label, 'aria-label': ariaLabel, id, value, onValueChange, open, onOpenChange } = props;
+
 	const uuid = useId();
 
 	const internalValue = useMemo(() => (value ? [parseDate(value)] : undefined), [value]);

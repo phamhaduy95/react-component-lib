@@ -1,25 +1,20 @@
 import { FieldStatus } from '@components/type';
 import classNames from 'classnames';
-import { createElement, HTMLAttributes, HTMLElementType } from 'react';
+import { createElement, HTMLAttributes, HTMLElementType, JSX } from 'react';
 import './FormLabel.css';
 
-type FormLabelProps = HTMLAttributes<HTMLLabelElement> & {
+export interface FormLabelProps extends HTMLAttributes<HTMLLabelElement> {
 	type?: HTMLElementType;
 	children?: React.ReactNode;
 	status?: FieldStatus;
 	className?: string;
 	required?: boolean;
 	htmlFor?: string;
-};
+}
 
-const FormLabel = ({
-	type = 'label',
-	status,
-	children,
-	className,
-	required,
-	...rest
-}: FormLabelProps) => {
+const FormLabel = (props: FormLabelProps): JSX.Element => {
+	const { type = 'label', status, children, className, required, ...rest } = props;
+
 	const renderLabelContent = () => (required ? <>{children} '*'</> : children);
 
 	const Component = createElement(

@@ -1,23 +1,26 @@
 import { DatePicker } from '@ark-ui/react/date-picker';
 import classNames from 'classnames';
+import { JSX } from 'react';
 import BaseCalendarView from './BaseCalendarView';
 
-type CalendarProps = Pick<
-	DatePicker.RootProps,
-	| 'value'
-	| 'view'
-	| 'startOfWeek'
-	| 'onValueChange'
-	| 'max'
-	| 'min'
-	| 'selectionMode'
-	| 'timeZone'
-	| 'fixedWeeks'
-> & {
+interface CalendarProps
+	extends Pick<
+		DatePicker.RootProps,
+		| 'value'
+		| 'view'
+		| 'startOfWeek'
+		| 'onValueChange'
+		| 'max'
+		| 'min'
+		| 'selectionMode'
+		| 'timeZone'
+		| 'fixedWeeks'
+	> {
 	className?: string;
-};
+}
 
-const Calendar = ({ className, ...rest }: CalendarProps) => {
+const Calendar = (props: CalendarProps): JSX.Element => {
+	const { className, ...rest } = props;
 	return (
 		<DatePicker.Root
 			open
