@@ -6,7 +6,6 @@
 		"lib": ["ES2020", "DOM", "DOM.Iterable"],
 		"module": "ESNext",
 		"skipLibCheck": true,
-      
 
 		/* Bundler mode */
 		"moduleResolution": "bundler",
@@ -22,12 +21,13 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true,
-        "baseUrl": ".",
-        "paths": {
-            "@styles/*": ["src/styles/*"],
-            "@components/*": ["lib/components/*"],
-            "@pages/*": ["src/pages/*"],
-        },
-    },
-	"include": ["src", "tailwind.config.js", "lib/components"]
+		"baseUrl": ".",
+		"paths": {
+			"@styles/*": ["src/styles/*"],
+			"@components/*": ["lib/components/*"],
+			"@pages/*": ["src/pages/*"],
+			"@lib/*": ["dist/*"]
+		}
+	},
+	"include": ["src", "tailwind.config.js", "lib/components", "dist"]
 }
