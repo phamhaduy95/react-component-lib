@@ -5,7 +5,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": " vite build && tsc -p tsconfig.lib.json",
+		"build:lib": " vite build && tsc -p tsconfig.lib.json",
+		"build:app": "vite --config vite.config.app.ts build",
 		"prettier": "prettier . --write --cache",
 		"lint": "eslint .",
 		"preview": "vite preview",
