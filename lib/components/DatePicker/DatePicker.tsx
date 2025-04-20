@@ -1,10 +1,11 @@
-import { DatePicker as ArkDatePicker, DateValue, parseDate } from '@ark-ui/react/date-picker';
+import { AriaAttributes, JSX, useId, useMemo } from 'react';
 
+import { DatePicker as ArkDatePicker, DateValue, parseDate } from '@ark-ui/react/date-picker';
 import { Portal } from '@ark-ui/react/portal';
 import BaseCalendarView from '@components/Calendar/BaseCalendarView';
 import FormLabel from '@components/FormLabel/FormLabel';
 import { CalendarIcon } from '@radix-ui/react-icons';
-import { AriaAttributes, JSX, useId, useMemo } from 'react';
+
 import './DatePicker.css';
 
 interface DatePickerProps

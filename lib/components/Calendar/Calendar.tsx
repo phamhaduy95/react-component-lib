@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { JSX } from 'react';
 import BaseCalendarView from './BaseCalendarView';
 
-interface CalendarProps
+export interface CalendarProps
 	extends Pick<
 		DatePicker.RootProps,
 		| 'value'

@@ -1,8 +1,8 @@
-import { Combobox, useComboboxContext, UseComboboxContext } from '@ark-ui/react';
-import { SelectItem } from '@components/Select/BaseSelect';
 import { JSX, Ref } from 'react';
 
-import { Tag } from '../Tag';
+import { Combobox, useComboboxContext, UseComboboxContext } from '@ark-ui/react';
+import { SelectItem } from '@components/Select/BaseSelect';
+import Tag from '@components/Tag';
 import { BaseCombobox, BaseComboboxProps } from './BaseComboBox';
 
 export interface MultipleComboboxProps

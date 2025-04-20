@@ -3,7 +3,7 @@ import { Collapsible as RadixCollapsible } from 'radix-ui';
 import { JSX, useState } from 'react';
 import './Collapsible.css';
 
-interface CollapsibleProps {
+export interface CollapsibleProps {
 	isOpen?: boolean;
 	defaultOpen?: boolean;
 	disabled?: boolean;
