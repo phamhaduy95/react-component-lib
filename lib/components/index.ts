@@ -7,7 +7,11 @@ export { default as Calendar } from './Calendar';
 export * from './Collapsible';
 export { default as Collapsible } from './Collapsible';
 
-export * from './Combobox';
+export * from './MultipleCombobox';
+export { default as MultipleCombobox } from './MultipleCombobox';
+
+export * from './SingleCombobox';
+export { default as SingleCombobox } from './SingleCombobox';
 
 export * from './DatePicker';
 

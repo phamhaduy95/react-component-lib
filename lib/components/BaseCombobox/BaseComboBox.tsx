@@ -29,7 +29,7 @@ export interface BaseComboboxProps extends HTMLAttributes<HTMLInputElement> {
 	'data-testid'?: string;
 }
 
-export const BaseCombobox = (props: BaseComboboxProps): JSX.Element => {
+const BaseCombobox = (props: BaseComboboxProps): JSX.Element => {
 	const {
 		label,
 		items = [],
@@ -150,3 +150,5 @@ export const BaseCombobox = (props: BaseComboboxProps): JSX.Element => {
 		</Combobox.Root>
 	);
 };
+
+export default BaseCombobox;

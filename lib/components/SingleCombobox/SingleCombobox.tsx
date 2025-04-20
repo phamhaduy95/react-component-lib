@@ -1,6 +1,6 @@
+import BaseCombobox, { BaseComboboxProps } from '@components/BaseCombobox';
 import { SelectItem } from '@components/Select/BaseSelect';
 import { JSX } from 'react';
-import { BaseCombobox, BaseComboboxProps } from './BaseComboBox';
 
 export interface SingleComboboxProps
 	extends Omit<BaseComboboxProps, 'value' | 'onValueChange' | 'multiple'> {
