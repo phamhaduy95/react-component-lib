@@ -2,7 +2,7 @@ import { Menu as ArkMenu } from '@ark-ui/react/menu';
 import { ItemObject } from '@components/type';
 import classNames from 'classnames';
 import { JSX } from 'react';
-import SubMenu from './SubMenu';
+import SubMenu from '../SubMenu/SubMenu';
 
 interface StandardItem extends ItemObject {
 	type?: never;
@@ -28,7 +28,7 @@ export interface DropdownMenuProps {
 	CustomItem?: (item: ItemObject) => React.ReactNode;
 }
 
-const DropdownMenu = (props: DropdownMenuProps): JSX.Element => {
+const DropDownMenu = (props: DropdownMenuProps): JSX.Element => {
 	const { items = [], className, CustomTrigger, children } = props;
 	return (
 		<ArkMenu.Root>
@@ -64,4 +64,4 @@ const DropdownMenu = (props: DropdownMenuProps): JSX.Element => {
 	);
 };
 
-export default DropdownMenu;
+export default DropDownMenu;

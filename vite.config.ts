@@ -1,24 +1,23 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
-import path, { resolve } from 'path';
+import * as glob from 'glob';
+import path, { extname, relative, resolve } from 'path';
+import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
-// const a = Object.fromEntries(
-// 	glob
-// 		.sync('lib/**/index.{ts,tsx}', {
-// 			ignore: ['lib/**/*.d.ts']
-// 		})
-// 		.map((file) => [
-// 			relative('lib', file.slice(0, file.length - extname(file).length)),
-// 			fileURLToPath(new URL(file, import.meta.url))
-// 		])
-// );
-
-// console.log('D:/project/front-end/react/react-component-lib/lib/components/NavigationBar/index.ts');
+const entries: Array<[string, string]> = glob
+	.sync('lib/**/*.{ts,tsx}', {
+		ignore: ['lib/**/*.d.ts', 'lib/**/type.ts']
+	})
+	.map((file) => [
+		relative('lib', file.slice(0, file.length - extname(file).length)),
+		fileURLToPath(new URL(file, import.meta.url))
+	]);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [react(), tailwindcss()],
+	plugins: [react(), tailwindcss(), libInjectCss()],
 	resolve: {
 		alias: {
 			'@styles': path.resolve(__dirname, './src/styles'),
@@ -32,16 +31,30 @@ export default defineConfig({
 			entry: resolve(__dirname, 'lib/index.ts'),
 			formats: ['es']
 		},
+		sourcemap: true,
+		cssCodeSplit: true,
+		ssrEmitAssets: true,
 		rollupOptions: {
-			external: ['react', 'react-dom'],
+			external: ['react', 'react-dom', 'react/jsx-runtime'],
 			output: {
+				assetFileNames: (a) => {
+					if (a.originalFileNames.length > 0) {
+						const targetDir = relative('lib', path.dirname(a.originalFileNames[0]));
+						const fileName = path.join(targetDir, a.names[0]);
+						return fileName;
+					}
+					return 'assets/[name][extname]';
+				},
+				entryFileNames: '[name].js',
+				chunkFileNames: 'common/[name].js',
 				globals: {
 					react: 'React',
-					'react-dom': 'ReactDOM'
+					'react-dom': 'ReactDOM',
+					'react/jsx-runtime': 'JSXRuntime'
 				}
-			}
+			},
+			input: Object.fromEntries(entries)
 		},
-
 		copyPublicDir: false
 	}
 });

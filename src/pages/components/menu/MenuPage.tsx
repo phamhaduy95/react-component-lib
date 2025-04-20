@@ -1,9 +1,9 @@
-import Button from '@components/Button';
-import DropdownMenu from '@components/Menu/Menu';
+import { Button, DropDownMenu } from '@lib/components';
+
 import { ComponentProps } from 'react';
 
 const MenuPage = () => {
-	const items: ComponentProps<typeof DropdownMenu>['items'] = [
+	const items: ComponentProps<typeof DropDownMenu>['items'] = [
 		{ value: 'light-monochrome', label: 'Light Monochrome' },
 		{ value: 'dark-green', label: 'Dark Green' },
 		{ value: 'svelte-orange', label: 'Svelte Orange' },
@@ -30,9 +30,9 @@ const MenuPage = () => {
 	];
 
 	return (
-		<DropdownMenu items={items}>
+		<DropDownMenu items={items}>
 			<Button>Click me</Button>
-		</DropdownMenu>
+		</DropDownMenu>
 	);
 };
 

@@ -1,7 +1,8 @@
 import { DatePicker } from '@ark-ui/react/date-picker';
 import classNames from 'classnames';
 import { JSX } from 'react';
-import BaseCalendarView from './BaseCalendarView';
+import BaseCalendarView from '../BaseCalendarView/BaseCalendarView';
+import './Calendar.css';
 
 export interface CalendarProps
 	extends Pick<

@@ -8,7 +8,7 @@
 		"target": "ESNext",
 		"module": "ESNext",
 		"jsx": "react-jsx",
-		"incremental": false,
+		"incremental": true,
 		"esModuleInterop": true,
 		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
