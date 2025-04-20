@@ -1,8 +1,11 @@
 {
-	"name": "react-component-lib",
-	"private": true,
-	"version": "0.0.0",
+	"name": "@phduy41300615/react-components",
+	"version": "0.0.1",
 	"type": "module",
+	"license": "MIT",
+	"author": "ph.duy113@gmail.com",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
 		"dev": "vite",
 		"build:lib": " vite build && tsc -p tsconfig.lib.json",
@@ -11,8 +14,19 @@
 		"lint": "eslint .",
 		"preview": "vite preview",
 		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"prepublishOnly": "npm run build:lib"
 	},
+	"peerDependencies": {
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0"
+	},
+	"sideEffects": [
+		"**/*.css"
+	],
+	"files": [
+		"dist"
+	],
 	"dependencies": {
 		"@ark-ui/react": "^5.5.0",
 		"@radix-ui/react-icons": "^1.3.2",
