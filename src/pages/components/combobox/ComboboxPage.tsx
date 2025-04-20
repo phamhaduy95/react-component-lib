@@ -1,5 +1,4 @@
-import { MultipleCombobox } from '@components/Combobox';
-import SingleCombobox from '@components/Combobox/SingleCombobox';
+import { MultipleCombobox, SingleCombobox } from '@lib/components';
 
 const ComboboxPage = () => {
 	const items = [

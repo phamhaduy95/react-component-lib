@@ -1,7 +1,7 @@
 import { useSelectContext, UseSelectContext } from '@ark-ui/react/select';
 import Tag from '@components/Tag';
 import { JSX } from 'react';
-import BaseSelect, { BaseSelectProps, SelectItem } from './BaseSelect';
+import BaseSelect, { BaseSelectProps, SelectItem } from '../BaseSelect/BaseSelect';
 
 export interface MultipleSelectProps extends Omit<BaseSelectProps, 'value' | 'onValueChange'> {
 	value?: string[];

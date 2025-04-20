@@ -1,16 +1,15 @@
+import { HTMLAttributes, Ref, useId } from 'react';
+
 import { Portal } from '@ark-ui/react/portal';
 import { Select, createListCollection } from '@ark-ui/react/select';
+import { FieldStatus, SelectItem } from '@components/type';
 import { CheckIcon, ChevronDownIcon, Cross2Icon } from '@radix-ui/react-icons';
-import { HTMLAttributes, Ref, useId } from 'react';
-import SupportingText from '../SupportingText';
-import { FieldStatus } from '../type';
-
 import classNames from 'classnames';
+import SupportingText from '../SupportingText';
+
 import '../FormField/FormField.css';
 import '../Menu/Menu.css';
 import './Select.css';
-
-export type SelectItem = { value: string; label: string; disabled?: boolean };
 
 export type BaseSelectProps = HTMLAttributes<HTMLButtonElement> & {
 	className?: string;

@@ -1,8 +1,8 @@
 import { Combobox, createListCollection } from '@ark-ui/react/combobox';
 import { Portal } from '@ark-ui/react/portal';
-import { SelectItem } from '@components/Select/BaseSelect';
+
 import SupportingText from '@components/SupportingText';
-import { FieldStatus } from '@components/type';
+import { FieldStatus, SelectItem } from '@components/type';
 import { CheckIcon, ChevronDownIcon } from '@radix-ui/react-icons';
 import classNames from 'classnames';
 import { HTMLAttributes, JSX, Ref, useMemo, useState } from 'react';

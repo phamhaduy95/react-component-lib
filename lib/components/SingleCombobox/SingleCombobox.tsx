@@ -1,5 +1,6 @@
 import BaseCombobox, { BaseComboboxProps } from '@components/BaseCombobox';
-import { SelectItem } from '@components/Select/BaseSelect';
+import { SelectItem } from '@components/type';
+
 import { JSX } from 'react';
 
 export interface SingleComboboxProps

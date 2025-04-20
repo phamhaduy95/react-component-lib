@@ -28,7 +28,11 @@ export { default as Menu } from './Menu';
 export * from './ScrollArea';
 export { default as ScrollArea } from './ScrollArea';
 
-export * from './Select';
+export * from './SingleSelect';
+export { default as SingleSelect } from './SingleSelect';
+
+export * from './MultipleSelect';
+export { default as MultipleSelect } from './MultipleSelect';
 
 export * from './SupportingText';
 export { default as SupportingText } from './SupportingText';

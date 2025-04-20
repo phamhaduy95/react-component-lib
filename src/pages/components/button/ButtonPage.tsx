@@ -1,4 +1,4 @@
-import Button from '@components/Button';
+import { Button } from '@lib/components';
 
 const ButtonPage = () => {
 	return (

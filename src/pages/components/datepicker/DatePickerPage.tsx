@@ -1,5 +1,4 @@
-import DatePicker from '@components/DatePicker/DatePicker';
-import DateRangePicker from '@components/DateRangePicker/DateRangePicker';
+import { DatePicker, DateRangePicker } from '@lib/components';
 import { useState } from 'react';
 
 const DatePickerPage = () => {
