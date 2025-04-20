@@ -2,8 +2,9 @@ import { JSX, Ref } from 'react';
 
 import { Combobox, useComboboxContext, UseComboboxContext } from '@ark-ui/react';
 import BaseCombobox, { BaseComboboxProps } from '@components/BaseCombobox';
-import { SelectItem } from '@components/BaseSelect/BaseSelect';
+
 import Tag from '@components/Tag';
+import { SelectItem } from '@components/type';
 
 export interface MultipleComboboxProps
 	extends Omit<BaseComboboxProps, 'value' | 'onValueChange' | 'multiple'> {

@@ -7,8 +7,8 @@ import { CheckIcon, ChevronDownIcon, Cross2Icon } from '@radix-ui/react-icons';
 import classNames from 'classnames';
 import SupportingText from '../SupportingText';
 
+import '../DropDownMenu/DropDownMenu.css';
 import '../FormField/FormField.css';
-import '../Menu/Menu.css';
 import './Select.css';
 
 export type BaseSelectProps = HTMLAttributes<HTMLButtonElement> & {

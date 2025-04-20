@@ -1,5 +1,6 @@
+import BaseSelect, { BaseSelectProps } from '@components/BaseSelect';
+import { SelectItem } from '@components/type';
 import { useMemo } from 'react';
-import BaseSelect, { BaseSelectProps, SelectItem } from '../BaseSelect/BaseSelect';
 
 export interface SingleSelectProps extends Omit<BaseSelectProps, 'value' | 'onValueChange'> {
 	value?: string;

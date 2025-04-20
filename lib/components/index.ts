@@ -22,8 +22,8 @@ export { default as DateRangePicker } from './DateRangePicker';
 export * from './FormLabel';
 export { default as FormLabel } from './FormLabel';
 
-export * from './Menu';
-export { default as Menu } from './Menu';
+export * from './DropDownMenu';
+export { default as DropDownMenu } from './DropDownMenu';
 
 export * from './ScrollArea';
 export { default as ScrollArea } from './ScrollArea';
