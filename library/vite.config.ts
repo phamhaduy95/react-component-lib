@@ -6,12 +6,19 @@ import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
-const entries: Array<[string, string]> = glob
+const components: Array<[string, string]> = glob
 	.sync('lib/**/*.{ts,tsx}', {
 		ignore: ['lib/**/*.d.ts', 'lib/**/type.ts']
 	})
 	.map((file) => [
 		relative('lib', file.slice(0, file.length - extname(file).length)),
+		fileURLToPath(new URL(file, import.meta.url))
+	]);
+
+const themes = glob
+	.sync('lib/themes/**/*.css')
+	.map((file) => [
+		relative('lib/themes', file.slice(0, file.length - extname(file).length)),
 		fileURLToPath(new URL(file, import.meta.url))
 	]);
 
@@ -32,13 +39,12 @@ export default defineConfig({
 			formats: ['es']
 		},
 		sourcemap: true,
-		cssCodeSplit: true,
-		ssrEmitAssets: true,
 		rollupOptions: {
 			external: ['react', 'react-dom', 'react/jsx-runtime'],
 			output: {
 				assetFileNames: (a) => {
 					if (a.originalFileNames.length > 0) {
+						console.log(a);
 						const targetDir = relative('lib', path.dirname(a.originalFileNames[0]));
 						const fileName = path.join(targetDir, a.names[0]);
 						return fileName;
@@ -53,7 +59,7 @@ export default defineConfig({
 					'react/jsx-runtime': 'JSXRuntime'
 				}
 			},
-			input: Object.fromEntries(entries)
+			input: Object.fromEntries([...components, ...themes])
 		},
 		copyPublicDir: false
 	}

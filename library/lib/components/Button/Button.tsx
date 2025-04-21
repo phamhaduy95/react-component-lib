@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import { JSX, Ref } from 'react';
+
 import './Button.css';
+
 type ButtonVariant = 'filled' | 'outlined' | 'text';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
