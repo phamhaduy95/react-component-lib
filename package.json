@@ -2,11 +2,18 @@
 	"devDependencies": {
 		"turbo": "^2.5.0"
 	},
-	"name": "b",
+	"name": "phlib",
 	"version": "1.0.0",
 	"main": "index.js",
 	"repository": "https://github.com/phamhaduy95/react-component-lib.git",
 	"author": "phamhaduy95 <ph.duy113@gmail.com>",
 	"license": "MIT",
-	"packageManager": "yarn@1.22.22"
+	"packageManager": "yarn@1.22.22",
+	"dependencies": {
+		"prettier": "^3.5.3"
+	},
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	]
 }

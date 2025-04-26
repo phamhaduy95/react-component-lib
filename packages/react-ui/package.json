@@ -1,5 +1,5 @@
 {
-	"name": "@phduy41300615/react-components",
+	"name": "@packages/react-components",
 	"version": "0.0.2",
 	"type": "module",
 	"license": "MIT",
@@ -15,7 +15,8 @@
 		"preview": "vite preview",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
-		"prepublishOnly": "npm run build:lib"
+		"prepublishOnly": "npm run build:lib",
+		"type-check": "tsc --noEmit"
 	},
 	"peerDependencies": {
 		"react": "^19.1.0",
@@ -61,7 +62,6 @@
 		"eslint-plugin-react-refresh": "^0.4.3",
 		"eslint-plugin-storybook": "^0.12.0",
 		"glob": "^11.0.1",
-		"playwright": "^1.51.1",
 		"prettier": "^3.5.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"storybook": "8.6.11",
@@ -72,6 +72,11 @@
 		"vite-plugin-dts": "^4.5.3",
 		"vite-plugin-lib-inject-css": "^2.2.2",
 		"vitest": "^3.1.1"
+	},
+	"exports": {
+		".": "./src/constants.ts",
+		"./add": "./src/add.ts",
+		"./subtract": "./src/subtract.ts"
 	},
 	"description": "THis is a UI component library for building React application",
 	"directories": {
