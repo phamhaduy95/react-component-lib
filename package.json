@@ -1,19 +1,22 @@
 {
-	"devDependencies": {
-		"turbo": "^2.5.0"
-	},
-	"name": "phlib",
-	"version": "1.0.0",
-	"main": "index.js",
-	"repository": "https://github.com/phamhaduy95/react-component-lib.git",
-	"author": "phamhaduy95 <ph.duy113@gmail.com>",
-	"license": "MIT",
-	"packageManager": "yarn@1.22.22",
-	"dependencies": {
-		"prettier": "^3.5.3"
-	},
-	"workspaces": [
-		"apps/*",
-		"packages/*"
-	]
+    "name": "root",
+    "type": "module",
+    "private": true,
+    "devDependencies": {
+        "turbo": "^2.5.0",
+        "typescript": "5.8.3",
+        "prettier": "3.5.3",
+        "@types/bun": "1.2.10"
+    },
+    "repository": "https://github.com/phamhaduy95/react-component-lib.git",
+    "author": "phamhaduy95 <ph.duy113@gmail.com>",
+    "license": "MIT",
+    "packageManager": "bun@1.2.10",
+    "engines": {
+        "node": ">=18"
+    },
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ]
 }
