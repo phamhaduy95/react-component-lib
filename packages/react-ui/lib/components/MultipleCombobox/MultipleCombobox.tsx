@@ -1,7 +1,6 @@
-import { JSX, Ref } from 'react';
-
 import { Combobox, useComboboxContext, UseComboboxContext } from '@ark-ui/react';
 import BaseCombobox, { BaseComboboxProps } from '@components/BaseCombobox';
+import { JSX, Ref } from 'react';
 
 import Tag from '@components/Tag';
 import { SelectItem } from '@components/type';

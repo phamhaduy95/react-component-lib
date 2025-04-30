@@ -1,4 +1,5 @@
-import Collapsible from '@components/Collapsible/Collapsible';
+
+import { Collapsible } from '@packages/react-components';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { JSX } from 'react';
 import { NavigationLink } from './NavigationBar';

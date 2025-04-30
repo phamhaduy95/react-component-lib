@@ -1,4 +1,5 @@
-import { TextInput } from '@lib/components';
+import { TextInput } from "@packages/react-components";
+
 
 const TextInputPage = () => {
 	return (

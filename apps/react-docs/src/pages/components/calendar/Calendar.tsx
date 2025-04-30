@@ -1,4 +1,5 @@
-import { Calendar } from '@lib/components';
+import { Calendar } from "@packages/react-components";
+
 
 const CalendarPage = () => {
 	return (

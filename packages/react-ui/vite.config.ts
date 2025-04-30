@@ -27,10 +27,7 @@ export default defineConfig({
 	plugins: [react(), tailwindcss(), libInjectCss()],
 	resolve: {
 		alias: {
-			'@styles': path.resolve(__dirname, './src/styles'),
 			'@components': path.resolve(__dirname, './lib/components'),
-			'@pages': path.resolve(__dirname, './src/pages'),
-			'@lib': path.resolve(__dirname, './lib')
 		}
 	},
 	build: {
@@ -44,7 +41,6 @@ export default defineConfig({
 			output: {
 				assetFileNames: (a) => {
 					if (a.originalFileNames.length > 0) {
-						console.log(a);
 						const targetDir = relative('lib', path.dirname(a.originalFileNames[0]));
 						const fileName = path.join(targetDir, a.names[0]);
 						return fileName;

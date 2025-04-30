@@ -1,5 +1,7 @@
-import NavigationBar, { type NavigationBarProps } from '@components/NavigationBar';
+
 import { NavLink, Outlet } from 'react-router';
+import NavigationBar, { NavigationBarProps } from 'src/components/NavigationBar/NavigationBar';
+
 
 const ComponentsPage = () => {
 	const links: NavigationBarProps['items'] = [

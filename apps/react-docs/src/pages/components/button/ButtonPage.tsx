@@ -1,4 +1,5 @@
-import Button from '@lib/components/Button';
+import { Button } from "@packages/react-components";
+
 
 const ButtonPage = () => {
 	return (

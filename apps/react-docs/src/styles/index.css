@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import '@lib/themes/default.css';
+@import "@packages/react-components/themes/default.css";
 
 @theme {
 	--radius-select: var(--field-border-radius);

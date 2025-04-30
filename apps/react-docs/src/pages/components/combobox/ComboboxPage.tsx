@@ -1,4 +1,5 @@
-import { MultipleCombobox, SingleCombobox } from '@lib/components';
+import { MultipleCombobox, SingleCombobox } from "@packages/react-components";
+
 
 const ComboboxPage = () => {
 	const items = [

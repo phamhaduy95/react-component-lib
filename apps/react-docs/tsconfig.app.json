@@ -1,12 +1,10 @@
 {
 	"compilerOptions": {
-		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 		"target": "ES2020",
 		"useDefineForClassFields": true,
 		"lib": ["ES2020", "DOM", "DOM.Iterable"],
 		"module": "ESNext",
 		"skipLibCheck": true,
-
 		/* Bundler mode */
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
@@ -23,8 +21,9 @@
 		"noUncheckedSideEffectImports": true,
 		"baseUrl": ".",
 		"paths": {
-			"@components/*": ["lib/components/*"],
+			"@styles/*": ["src/styles/*"],
+			"@pages/*": ["src/pages/*"],
 		}
 	},
-	"include": ["tailwind.config.js", "lib/components", "dist"]
+	"include": ["src"]
 }

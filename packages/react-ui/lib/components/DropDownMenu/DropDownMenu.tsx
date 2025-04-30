@@ -4,23 +4,24 @@ import classNames from 'classnames';
 import { JSX } from 'react';
 import SubMenu from '../SubMenu/SubMenu';
 
-interface StandardItem extends ItemObject {
+type StandardItem =  ItemObject & {
 	type?: never;
 }
 
-export interface NestedMenu extends ItemObject {
+export type NestedMenu = ItemObject & {
 	type: 'nested';
 	items: MenuItem[];
 }
 
-interface GroupItem extends ItemObject {
+type GroupItem =  ItemObject & {
 	type: 'group';
 	items: MenuItem[];
 }
 
 type MenuItem = StandardItem | NestedMenu | GroupItem;
 
-export interface DropdownMenuProps {
+
+export type DropdownMenuProps = {
 	className?: string;
 	items?: MenuItem[];
 	children?: React.ReactNode;

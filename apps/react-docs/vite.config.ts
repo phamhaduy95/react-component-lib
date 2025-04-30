@@ -6,12 +6,13 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react(), tailwindcss()],
+ 
 	resolve: {
 		alias: {
+            "src": path.resolve(__dirname,"./src"),
 			'@styles': path.resolve(__dirname, './src/styles'),
-			'@components': path.resolve(__dirname, './lib/components'),
 			'@pages': path.resolve(__dirname, './src/pages'),
-			'@lib': path.resolve(__dirname, './lib')
+            "@component":path.resolve(__dirname,"./src/components")
 		}
 	},
 	build: {

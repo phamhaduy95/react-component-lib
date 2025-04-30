@@ -1,4 +1,5 @@
-import { ScrollArea } from '@lib/components';
+import { ScrollArea } from "@packages/react-components";
+
 
 const ScrollAreaPage = () => {
 	return (

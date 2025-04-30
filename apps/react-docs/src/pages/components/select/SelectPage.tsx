@@ -1,5 +1,6 @@
-import { MultipleSelect, SingleSelect } from '@lib/components';
 
+
+import { MultipleSelect, SingleSelect } from '@packages/react-components';
 import { useState } from 'react';
 
 const SelectPage = () => {
