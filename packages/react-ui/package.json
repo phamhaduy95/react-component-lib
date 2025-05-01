@@ -4,6 +4,12 @@
     "type": "module",
     "license": "MIT",
     "author": "ph.duy113@gmail.com",
+    "description": "THis is a UI component library for building React application",
+    "keywords": [
+        "react",
+        "components",
+        "ui"
+    ],
     "scripts": {
         "type-checks": "tsc --noEmit",
         "build": " vite build && tsc -p tsconfig.lib.json",
@@ -14,13 +20,29 @@
         "postpack": "clean-package restore",
         "prepublishOnly": "npm run build"
     },
-    "peerDependencies": {
-        "react": "^19.1.0",
-        "react-dom": "^19.1.0"
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
+        "./components": {
+            "types": "./dist/components/index.d.ts",
+            "default": "./dist/components/index.js"
+        },
+        "./themes/*.css": "./dist/themes/*.css"
     },
-    "sideEffects": [
-        "**/*.css"
-    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/phamhaduy95/UI-components.git",
+        "directory": "packages/react-ui"
+    },
+    "bugs": {
+        "url": "https://github.com/phamhaduy95/react-component-lib/issues"
+    },
+    "homepage": "https://github.com/phamhaduy95/react-component-lib#readme",
     "files": [
         "dist"
     ],
@@ -58,39 +80,11 @@
         "vite-plugin-dts": "^4.5.3",
         "vite-plugin-lib-inject-css": "^2.2.2"
     },
-    "clean-package": {
-        "indent": 2,
-        "remove": [
-            "eslintConfig",
-            "jest"
-        ]
+    "peerDependencies": {
+        "react": ">=18.0.0",
+        "react-dom": ">=18.0.0"
     },
-    "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "default": "./dist/index.js"
-        },
-        "./components": {
-            "types": "./dist/components/index.d.ts",
-            "default": "./dist/components/index.js"
-        },
-        "./themes/*.css": "./dist/themes/*.css"
-    },
-    "description": "THis is a UI component library for building React application",
-    "directories": {
-        "lib": "lib"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/phamhaduy95/react-component-lib.git"
-    },
-    "keywords": [
-        "react",
-        "components",
-        "ui"
-    ],
-    "bugs": {
-        "url": "https://github.com/phamhaduy95/react-component-lib/issues"
-    },
-    "homepage": "https://github.com/phamhaduy95/react-component-lib#readme"
+    "sideEffects": [
+        "**/*.css"
+    ]
 }
