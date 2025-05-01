@@ -1,0 +1,28 @@
+{
+    "name": "root",
+    "type": "module",
+    "private": true,
+    "devDependencies": {
+        "@types/bun": "1.2.10",
+        "prettier": "3.5.3",
+        "turbo": "^2.5.0",
+        "typescript": "5.8.3",
+        "typescript-eslint": "^8.29.0"
+    },
+    "scripts": {
+        "build": "turbo run build",
+        "dev": "turbo run dev",
+        "lint": "turbo run lint"
+    },
+    "repository": "https://github.com/phamhaduy95/react-component-lib.git",
+    "author": "phamhaduy95 <ph.duy113@gmail.com>",
+    "license": "MIT",
+    "engines": {
+        "node": ">=18"
+    },
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "packageManager": "pnpm@10.10.0"
+}
