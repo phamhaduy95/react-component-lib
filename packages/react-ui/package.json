@@ -12,7 +12,7 @@
     ],
     "scripts": {
         "type-checks": "tsc --noEmit",
-        "build": " vite build && tsc -p tsconfig.lib.json",
+        "build": " vite build",
         "prettier": "prettier . --write --cache",
         "lint": "eslint .",
         "preview": "vite preview",
@@ -20,6 +20,7 @@
         "postpack": "clean-package restore",
         "prepublishOnly": "npm run build"
     },
+    
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
