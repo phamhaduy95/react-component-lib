@@ -14,12 +14,13 @@
         "dev": "turbo run dev",
         "lint": "turbo run lint"
     },
-    "repository": "https://github.com/phamhaduy95/react-component-lib.git",
-    "author": "phamhaduy95 <ph.duy113@gmail.com>",
+ 
     "license": "MIT",
+
     "engines": {
         "node": ">=18"
     },
+    
     "workspaces": [
         "apps/*",
         "packages/*"
